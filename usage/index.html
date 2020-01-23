@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Basic Usage - pyautogit Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Basic Usage";
+    var mkdocs_page_input_path = "usage.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> pyautogit Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Basic Usage</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#repository-screen">Repository Screen</a></li>
+        
+            <li><a class="toctree-l3" href="#workspace-screen">Workspace Screen</a></li>
+        
+            <li><a class="toctree-l3" href="#credential-management">Credential Management</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../repo_select/">Repo Select Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../repo_control/">Repo Control Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">For Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../developers.md">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DocstringGenerated/PyAutogit.md">PyAutogitManager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DocstringGenerated/ScreenManager/">Screen Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DocstringGenerated/RepoSelect/">Repo Select</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DocstringGenerated/RepoControl/">Repo Control</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../DocstringGenerated/Commands/">Commands</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">pyautogit Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Basic Usage</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/usage.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="usage">Usage</h1>
+<p>Once <code>pyautogit</code> is installed, open a command line client (note that Windows Terminal is not supported), then navigate to a directory and type:</p>
+<pre><code>pyautogit
+</code></pre>
+
+<p>You can also specify an external directory:</p>
+<pre><code>pyautogit -w /home/jwlodek/repos
+</code></pre>
+
+<p>If you open <code>pyautogit</code> in a directory that contains a <code>.git</code> folder, it will treat it as a repository, while if it cannot find said folder, the target location will be treated as a workspace.</p>
+<h3 id="repository-screen">Repository Screen</h3>
+<p>From the repository screen, you manage the local opened repository. You may create commits, tags, push and pull, and manage branches. For more detailed information on using the Repository Screen, please check the documentation. </p>
+<h3 id="workspace-screen">Workspace Screen</h3>
+<p>The workspace screen allows for managing multiple <code>git</code> repositories at once. From here, all subdirectories that are identified as git repositories are listed, and you may open their respectiver repository screens. Also, you may clone new repositories, as well as create new blank repositories.</p>
+<h3 id="credential-management">Credential Management</h3>
+<p>When an action is performed that requires credentials (ex. git push), <code>pyautogit</code> will ask for your git remote username and password. These are then stored as environment variables for the running process, and are used with <code>git askpass</code> to perform operations. As a result, if you open an editor after credentials are entered (ex. VSCode), and use the integrated terminal to process <code>git</code> commands, you will not have to enter credentials again. Credentials are stored only for the duration the window is open, and must be re-entered after each restart.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../repo_select/" class="btn btn-neutral float-right" title="Repo Select Screen">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../install/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../install/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../repo_select/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

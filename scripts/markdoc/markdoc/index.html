@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Docstring to Markdown - pyautogit Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Docstring to Markdown";
+    var mkdocs_page_input_path = "scripts/markdoc/markdoc.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> pyautogit Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../repo_select/">Repo Select Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../repo_control/">Repo Control Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">For Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../developers.md">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../DocstringGenerated/PyAutogit.md">PyAutogitManager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../DocstringGenerated/ScreenManager/">Screen Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../DocstringGenerated/RepoSelect/">Repo Select</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../DocstringGenerated/RepoControl/">Repo Control</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../DocstringGenerated/Commands/">Commands</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">pyautogit Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Docstring to Markdown</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/scripts/markdoc/markdoc.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="docstring-to-markdown">Docstring to Markdown</h1>
+<p>This piece of code is used within Shed (https://www.github.com/cmry/shed) to
+convert sklearn-styled python docstrings to markdown. In this way, only the
+code documentation needs to be editted, and the readthedocs is automatically
+updated thereafter. To use it, simply type <code>python3 markdoc.py
+somefile.py somedoc.md</code>. Check class help for python usage. Don't forget to
+also check the class notes (they are important for docstring format
+guidelines).</p>
+<h1 id="markdoc">MarkDoc</h1>
+<pre><code class="python"> class MarkDoc(file_in, file_out, cold=False) 
+</code></pre>
+
+<p>Documentation to Markdown.</p>
+<p>This class converts a python file with properly formed sklearn-style
+docstrings to a markdown file that can be used in for example Readthedocs
+or jekyll.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">file_in</td>
+<td align="left">str</td>
+<td align="left">Python (.py) file from where the docstrings should be taken.</td>
+</tr>
+<tr>
+<td align="left">file_out</td>
+<td align="left">str</td>
+<td align="left">Markdown (.md) file where the documentation should be written.</td>
+</tr>
+<tr>
+<td align="left">cold</td>
+<td align="left">boolean, optional, default False</td>
+<td align="left">If you want to start the class without starting the reader, set True.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Attributes</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">markdown</td>
+<td align="left">str</td>
+<td align="left">The entire markdown file that will be appended to and written out.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="examples">Examples</h2>
+<p>Use of the package should just be from commandline with <code>python3 markdoc.py
+in.py out.md</code>. However, if for some reason it is required to load it as a
+class, you can just do:</p>
+<pre><code class="python"> &gt;&gt;&gt; from markdoc import MarkDoc
+&gt;&gt;&gt; d2m = MarkDoc('some/dir/file.py', '/some/otherdir/doc.md')
+
+</code></pre>
+
+<p>The string of the markdown can be accessed by:</p>
+<pre><code class="python"> &gt;&gt;&gt; print(d2m.markdown)
+
+</code></pre>
+
+<hr />
+<h2 id="notes">Notes</h2>
+<p>List of common errors and styleguide conflicts:</p>
+<h4 id="list-index-out-of-range">list index out of range?</h4>
+<ul>
+<li>
+<p>""" used for non-docstring strings.</p>
+</li>
+<li>
+<p>First Class or method Documentation line has newline after """.</p>
+</li>
+</ul>
+<p>Fix with: """This is the first line.</p>
+<p>Here comes the rest.</p>
+<p>"""</p>
+<h4 id="class-parameters-not-showing-in-code-blocks">Class parameters not showing in code blocks?</h4>
+<ul>
+<li>Class is not structed new-style (object after class).</li>
+</ul>
+<h4 id="code-blocks-not-showing">Code blocks not showing?</h4>
+<ul>
+<li>Code is ipython style rather than vanilla (i.e. In [1]: instead of &gt;&gt;&gt;).</li>
+</ul>
+<h4 id="tuple-index-out-of-range">tuple index out of range?</h4>
+<ul>
+<li>
+<p>Mistake in var : type lists (for example var: type).</p>
+</li>
+<li>
+<p>Description also contains a :.</p>
+</li>
+</ul>
+<h4 id="some-table-parts-are-not-showing">some table parts are not showing?</h4>
+<ul>
+<li>Probably included some seperators in there such as : or -----.</li>
+</ul>
+<h4 id="methods-are-garbled">methods are garbled?</h4>
+<ul>
+<li>Did you name a parameter 'class' or any other matches?</li>
+</ul>
+<hr />
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th align="left">method</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">read</td>
+<td align="left">Open python code file, spit out markdown file.</td>
+</tr>
+<tr>
+<td align="left">handle_classes</td>
+<td align="left">Given class docs only, write out their docs and methods.</td>
+</tr>
+<tr>
+<td align="left">find_declaration</td>
+<td align="left">Find <code>class Bla(object):</code> or <code>def method(params):</code> across lines.</td>
+</tr>
+<tr>
+<td align="left">structure_doc</td>
+<td align="left">Produce a structured dictionary from docstring.</td>
+</tr>
+<tr>
+<td align="left">md_title</td>
+<td align="left">Handle title and text parts for main and class-specific.</td>
+</tr>
+<tr>
+<td align="left">md_table</td>
+<td align="left">Place parameters and attributes in a table overview.</td>
+</tr>
+<tr>
+<td align="left">md_code_text</td>
+<td align="left">Section text and/or code in the example part of the doc.</td>
+</tr>
+<tr>
+<td align="left">md_class_method</td>
+<td align="left">Replace <code>class ...(object)</code> with <code>__init__</code> arguments.</td>
+</tr>
+<tr>
+<td align="left">md_methods_doc</td>
+<td align="left">Merge all method elements in one string.</td>
+</tr>
+<tr>
+<td align="left">md_class_doc</td>
+<td align="left">Merge all class section elements in one string.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="read">read</h3>
+<pre><code class="python">    read(file_in, file_out) 
+</code></pre>
+
+<p>Open python code file, spit out markdown file.</p>
+<h3 id="handle_classes">handle_classes</h3>
+<pre><code class="python">    handle_classes(classes) 
+</code></pre>
+
+<p>Given class docs only, write out their docs and methods.</p>
+<h3 id="find_declaration">find_declaration</h3>
+<pre><code class="python">    find_declaration(lines) 
+</code></pre>
+
+<p>Find <code>class Bla(object):</code> or <code>def method(params):</code> across lines.</p>
+<h3 id="structure_doc">structure_doc</h3>
+<pre><code class="python">    structure_doc(doc) 
+</code></pre>
+
+<p>Produce a structured dictionary from docstring.</p>
+<p>The key is the part of the documentation (name, title, params,
+attributes, etc.), and value is a list of lines that make up this part.
+Is used to handle the order and different parses of different sections.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">doc</td>
+<td align="left">str</td>
+<td align="left">Flat string structure of a docstring block.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">X_doc</td>
+<td align="left">dict</td>
+<td align="left">Class or method doc, a structure dict with section; lines.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="md_title">md_title</h3>
+<pre><code class="python">    md_title(title_part, class_line=False) 
+</code></pre>
+
+<p>Handle title and text parts for main and class-specific.</p>
+<p>Pretty convoluted but delicate method that seperates the top part
+that should not be part of the title docstring off the document,
+handles correct punctuation of titles, for both classes and methods.
+Also detects if there's a description under the first line.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title_part</td>
+<td align="left">str</td>
+<td align="left">Part of the document that starts with triple qutoes and is below            any line seperators.</td>
+</tr>
+<tr>
+<td align="left">class_line</td>
+<td align="left">bool, optional, default False</td>
+<td align="left">The first line of the docstring by default servers as a title            header. However, for classes it should be formed into a normal            description. Thefefore, the # marker is removed and a . is added.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">line_buffer</td>
+<td align="left">str</td>
+<td align="left">Correctly formated markdown from the buffer.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="md_table">md_table</h3>
+<pre><code class="python">    md_table(doc, name) 
+</code></pre>
+
+<p>Place parameters and attributes in a table overview.</p>
+<p>The documentation parts that are typed by 'var : type \n description'
+can be splitted into a table. The same holds true for a list of class
+methods. These are handled by this method. Table structures are on
+the top of this python file.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">doc</td>
+<td align="left">str</td>
+<td align="left">Flat string structure of a docstring block.</td>
+</tr>
+<tr>
+<td align="left">name</td>
+<td align="left">str</td>
+<td align="left">Indicator for the table, can be for example Parameters or            Attributes.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">table</td>
+<td align="left">str</td>
+<td align="left">Markdown-type table with filled rows and formatted name.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="md_code_text">md_code_text</h3>
+<pre><code class="python">    md_code_text(doc, name, flat=False) 
+</code></pre>
+
+<p>Section text and/or code in the example part of the doc.</p>
+<p>If some code related beginnings (&gt;&gt;&gt;, ...) is founds buffer to code,
+else we regard it as text. Record order so that multiple consecutive
+blocks of text and code are possible.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">doc</td>
+<td align="left">str</td>
+<td align="left">Flat string structure of a docstring block.</td>
+</tr>
+<tr>
+<td align="left">name</td>
+<td align="left">str</td>
+<td align="left">Name of the section (Examples, Notes).</td>
+</tr>
+<tr>
+<td align="left">flat</td>
+<td align="left">bool, optional, default False</td>
+<td align="left">If there are no code blocks, flat can be used to stop parsing them.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">code</td>
+<td align="left">str</td>
+<td align="left">Formatted block of fenced markdown code-snippets and flat text.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="notes_1">Notes</h4>
+<p>Please note that this method assumes markdown is uses so-called
+fenced codeblocks that are commonly accepted by Readthedocs, Github,
+Bitbucket, and Jekyll (for example with Redcarpet).</p>
+<p>This current implementation does NOT allow for ipython styled code
+examples. (In [1]: Out[1]: etc.)</p>
+<h3 id="md_class_method">md_class_method</h3>
+<pre><code class="python">    md_class_method(doc, class_parts) 
+</code></pre>
+
+<p>Replace <code>class ...(object)</code> with <code>__init__</code> arguments.</p>
+<p>In sklearn-style, each class is represented as it's name, along with
+the parameters accepted in <code>__init__</code> as its parameters, as you would
+call the method in python. The markdown therefore needs to fill the
+(object) tag that is assigned to classes with the <code>__init__</code> params.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">doc</td>
+<td align="left">str</td>
+<td align="left">Flat string structure of a docstring block.</td>
+</tr>
+<tr>
+<td align="left">class_parts</td>
+<td align="left">list</td>
+<td align="left">List with parts that the docstring constituted of. First line            should be the class name and can therefore be replaced.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">doc</td>
+<td align="left">str</td>
+<td align="left">Same as doc, only now (object) has been replaced with <code>__init__</code>            parameters.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="notes_2">Notes</h4>
+<p>Please note that this implementation assumes you're using new-style
+class declarations where for example <code>class SomeClass:</code> should be
+written as <code>class SomeClass(object):</code>.</p>
+<h3 id="md_methods_doc">md_methods_doc</h3>
+<pre><code class="python">    md_methods_doc(method_doc) 
+</code></pre>
+
+<p>Merge all method elements in one string.</p>
+<p>This method will scan each method docstring and extract parameters,
+returns and descriptions. It will append them to the method table
+and link them in the doc (TODO).</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">method_doc</td>
+<td align="left">list</td>
+<td align="left">Lower part of the class docstrings that holds a method docstring            per entry.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">methods</td>
+<td align="left">str</td>
+<td align="left">Formatted markdown string with all method information.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="notes_3">Notes</h4>
+<p>On the bottom, dict calls are being done to order several parts of
+the docstring. If you use more than Parameters and Returns, please make
+sure they are added in the code there.</p>
+<h3 id="md_class_doc">md_class_doc</h3>
+<pre><code class="python">    md_class_doc(class_doc) 
+</code></pre>
+
+<p>Merge all class section elements in one string.</p>
+<p>This will piece together the descriptions contained in the docstring
+of the class. Currently, they are written <em>below</em> the top of the
+python file, and not put into any subfiles per class.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">class_doc</td>
+<td align="left">str</td>
+<td align="left">Flat text containing the class docstring part.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">mark_doc</td>
+<td align="left">str</td>
+<td align="left">Markdown formatted class docstring, including all subsections.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="notes_4">Notes</h4>
+<p>On the bottom, dict calls are being done to order several parts of
+the docstring. If you use more than Parameters, Attributes, Examples,
+and Notes, please make sure they are added in the code there.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

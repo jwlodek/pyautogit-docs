@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>File containing entry point for pyautogit, as well as a top level class for managing the program - pyautogit Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "File containing entry point for pyautogit, as well as a top level class for managing the program";
+    var mkdocs_page_input_path = "DocstringGenerated/PyAutogitManager.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> pyautogit Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../repo_select/">Repo Select Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../repo_control/">Repo Control Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">For Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developers.md">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../PyAutogit.md">PyAutogitManager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ScreenManager/">Screen Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RepoSelect/">Repo Select</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RepoControl/">Repo Control</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Commands/">Commands</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">pyautogit Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>File containing entry point for pyautogit, as well as a top level class for managing the program</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/DocstringGenerated/PyAutogitManager.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="file-containing-entry-point-for-pyautogit-as-well-as-a-top-level-class-for-managing-the-program">File containing entry point for pyautogit, as well as a top level class for managing the program</h1>
+<p>It also contains some helper functions and argument parsing.</p>
+<p>Author: Jakub Wlodek
+Created: 01-Oct-2019</p>
+<h1 id="pyautogitmanager">PyAutogitManager</h1>
+<pre><code class="python"> class PyAutogitManager 
+</code></pre>
+
+<p>Main pyautogit manager class. Controls all operations of CU.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Attributes</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">root</td>
+<td align="left">PyCUI</td>
+<td align="left">The root py_cui window</td>
+</tr>
+<tr>
+<td align="left">target_path</td>
+<td align="left">str</td>
+<td align="left">The path to the workspace directory</td>
+</tr>
+<tr>
+<td align="left">save_metadata</td>
+<td align="left">bool</td>
+<td align="left">Flag to specify metadata saving or not</td>
+</tr>
+<tr>
+<td align="left">credentials</td>
+<td align="left">list of str</td>
+<td align="left">Username and Password for git remote</td>
+</tr>
+<tr>
+<td align="left">current_state</td>
+<td align="left">str</td>
+<td align="left">Current state of pyautogit (repo control or repo select)</td>
+</tr>
+<tr>
+<td align="left">default_editor</td>
+<td align="left">str</td>
+<td align="left">Command to open external editor</td>
+</tr>
+<tr>
+<td align="left">post_input_callback</td>
+<td align="left">no-arg or lambda function</td>
+<td align="left">Function fired after a user input event</td>
+</tr>
+<tr>
+<td align="left">operation_thread</td>
+<td align="left">Thread</td>
+<td align="left">A thread for performing async operations. Starts as None, Thread created as needed</td>
+</tr>
+<tr>
+<td align="left">repos</td>
+<td align="left">list of str</td>
+<td align="left">List of repositories found in workspace</td>
+</tr>
+<tr>
+<td align="left">repo_select_widget_set</td>
+<td align="left">py_cui.widget_set.WidgetSet</td>
+<td align="left">set of py_cui widgets that are parts of the repo select screen</td>
+</tr>
+<tr>
+<td align="left">repo_menu</td>
+<td align="left">py_cui.widgets.ScrollMenu</td>
+<td align="left">The repository select menu in the repo select screen</td>
+</tr>
+<tr>
+<td align="left">git_status_box</td>
+<td align="left">py_cui.widgets.ScrolledTextBlock</td>
+<td align="left">Main info panel for repo select screen</td>
+</tr>
+<tr>
+<td align="left">current_status_box</td>
+<td align="left">py_cui.widgets.ScrolledTextBlock</td>
+<td align="left">Secondary info panel for repo select screen</td>
+</tr>
+<tr>
+<td align="left">clone_new_box</td>
+<td align="left">py_cui.widgets.TextBox</td>
+<td align="left">Textbox for cloning new repositories</td>
+</tr>
+<tr>
+<td align="left">create_new_box</td>
+<td align="left">py_cui.widgets.TextBox</td>
+<td align="left">Textbox for creating new repositories</td>
+</tr>
+<tr>
+<td align="left">repo_select_manager</td>
+<td align="left">RepoSelectManager</td>
+<td align="left">The manager wrapper class for the repo select screen</td>
+</tr>
+<tr>
+<td align="left">repo_control_widget_set</td>
+<td align="left">py_cui.widget_set.WidgetSet</td>
+<td align="left">set of py_cui widgets that are parts of the repo control screen</td>
+</tr>
+<tr>
+<td align="left">add_files_menu</td>
+<td align="left">py_cui.widgets.ScrollMenu</td>
+<td align="left">Menu for adding/unstaging files</td>
+</tr>
+<tr>
+<td align="left">remotes_menu</td>
+<td align="left">py_cui.widgets.ScrollMenu</td>
+<td align="left">Menu for selecting remotes</td>
+</tr>
+<tr>
+<td align="left">branch_menu</td>
+<td align="left">py_cui.widgets.ScrollMenu</td>
+<td align="left">Menu for selecting branches</td>
+</tr>
+<tr>
+<td align="left">commits_menu</td>
+<td align="left">py_cui.widgets.ScrollMenu</td>
+<td align="left">Menu listing most recent commits</td>
+</tr>
+<tr>
+<td align="left">info_text_block</td>
+<td align="left">py_cui.widgets.ScrolledTextBlock</td>
+<td align="left">Main Info text block in repo control screen</td>
+</tr>
+<tr>
+<td align="left">new_branch_textbox</td>
+<td align="left">py_cui.widgets.TextBox</td>
+<td align="left">Textbox for creating new branches</td>
+</tr>
+<tr>
+<td align="left">commit_message_box</td>
+<td align="left">py_cui.widgets.TextBox</td>
+<td align="left">Textbox for entering new commit messages</td>
+</tr>
+<tr>
+<td align="left">repo_control_manager</td>
+<td align="left">RepoControlManager</td>
+<td align="left">Manager wrapper for repo control screen.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
