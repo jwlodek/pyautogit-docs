@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Settings Screen - pyautogit Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Settings Screen";
+    var mkdocs_page_input_path = "DocstringGenerated\\SettingsScreen.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> pyautogit Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../repo_select/">Repo Select Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../repo_control/">Repo Control Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">For Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developers/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Pyautogit/">PyAutogitManager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ScreenManager/">Screen Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RepoSelectScreen/">Repo Select</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RepoControlScreen/">Repo Control</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Commands/">Commands</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Settings Screen</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#settings_screen">settings_screen</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#settingsscreenpyautogitscreen_managerscreenmanager">SettingsScreen(pyautogit.screen_manager.ScreenManager)</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../InternalEditorScreen/">Editor Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../MetadataManager/">Metadata Manager</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">pyautogit Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>For Developers &raquo;</li>
+        
+      
+    
+    <li>Settings Screen</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/DocstringGenerated/SettingsScreen.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="settings_screen">settings_screen</h1>
+<p>A subscreen that allows for setting a variety of pyautogit settings.</p>
+<h2 id="settingsscreenpyautogitscreen_managerscreenmanager">SettingsScreen(pyautogit.screen_manager.ScreenManager)</h2>
+<pre><code class="python">class SettingsScreen(pyautogit.screen_manager.ScreenManager)
+</code></pre>
+
+<p>Class representing settings subscreen for pyautogit</p>
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initialize_screen_elements</td>
+<td>Override of base class, initializes elements, returns widget set</td>
+</tr>
+<tr>
+<td>ask_log_file_path</td>
+<td>Prompts user to enter log file path</td>
+</tr>
+<tr>
+<td>get_settings_ascii_art</td>
+<td>Gets an ascii art settings title</td>
+</tr>
+<tr>
+<td>toggle_logging</td>
+<td>Function that toggles logging for pyautogit</td>
+</tr>
+<tr>
+<td>update_log_file_path</td>
+<td>Function that updates the target log file path</td>
+</tr>
+<tr>
+<td>refresh_status</td>
+<td>Override of base class refresh function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, top_manager)
+</code></pre>
+
+<p>Constructor for SettingsScreen</p>
+<h3 id="initialize_screen_elements">initialize_screen_elements</h3>
+<pre><code class="python">def initialize_screen_elements(self)
+</code></pre>
+
+<p>Override of base class function. Initializes widgets, and returns widget set</p>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>settings_widget_set</td>
+<td>py_cui.widget_set.WidgetSet</td>
+<td>Widget set object for rsettings screen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_initial_values">set_initial_values</h3>
+<pre><code class="python">def set_initial_values(self)
+</code></pre>
+
+<p>Function that sets initial status bar text for settings window</p>
+<h3 id="add_to_settings_log">add_to_settings_log</h3>
+<pre><code class="python">def add_to_settings_log(self, text)
+</code></pre>
+
+<p>Function that updates the settings info log panel</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>New log item to write to settings info panel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fetch_about_file">fetch_about_file</h3>
+<pre><code class="python">def fetch_about_file(self, file)
+</code></pre>
+
+<p>Function that grabs readme file and displays it</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td>str</td>
+<td>Filename to fetch from github repository</td>
+</tr>
+</tbody>
+</table>
+<h3 id="revert_settings_log">revert_settings_log</h3>
+<pre><code class="python">def revert_settings_log(self)
+</code></pre>
+
+<p>Function that resets to showing settings info</p>
+<h3 id="open_web_docs">open_web_docs</h3>
+<pre><code class="python">def open_web_docs(self)
+</code></pre>
+
+<p>Function tasked with open docs in external browser</p>
+<h3 id="show_tutorial">show_tutorial</h3>
+<pre><code class="python">def show_tutorial(self)
+</code></pre>
+
+<p>Function that demonstrates tutorial for using pyautogit</p>
+<h3 id="ask_log_file_path">ask_log_file_path</h3>
+<pre><code class="python">def ask_log_file_path(self)
+</code></pre>
+
+<p>Prompts user to enter log file path</p>
+<h3 id="get_settings_ascii_art">get_settings_ascii_art</h3>
+<pre><code class="python">def get_settings_ascii_art(self)
+</code></pre>
+
+<p>Gets ascii art settings logo</p>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>settings_message</td>
+<td>str</td>
+<td>Block letter ascii art settings logo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="toggle_editor_type">toggle_editor_type</h3>
+<pre><code class="python">def toggle_editor_type(self)
+</code></pre>
+
+<p>Function that toggles between internal and external editor</p>
+<h3 id="toggle_logging">toggle_logging</h3>
+<pre><code class="python">def toggle_logging(self)
+</code></pre>
+
+<p>Function that enables/disables logging</p>
+<h3 id="ask_default_editor">ask_default_editor</h3>
+<pre><code class="python">def ask_default_editor(self)
+</code></pre>
+
+<p>Function that asks user for editor, and then refreshes</p>
+<h3 id="update_default_editor">update_default_editor</h3>
+<pre><code class="python">def update_default_editor(self, new_editor)
+</code></pre>
+
+<p>Function that updates the new default editor</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_editor</td>
+<td>str</td>
+<td>command used to open external editor</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update_log_file_path">update_log_file_path</h3>
+<pre><code class="python">def update_log_file_path(self, new_log_file_path, default_path=False)
+</code></pre>
+
+<p>Function that updates log file path if valid</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_log_file_path</td>
+<td>str</td>
+<td>Path to new log file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="refresh_status">refresh_status</h3>
+<pre><code class="python">def refresh_status(self)
+</code></pre>
+
+<p>Override of base class refresh function.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../InternalEditorScreen/" class="btn btn-neutral float-right" title="Editor Screen">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Commands/" class="btn btn-neutral" title="Commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Commands/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../InternalEditorScreen/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

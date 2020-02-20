@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>PyAutogitManager - pyautogit Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "PyAutogitManager";
+    var mkdocs_page_input_path = "DocstringGenerated\\Pyautogit.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> pyautogit Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../repo_select/">Repo Select Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../repo_control/">Repo Control Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">For Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developers/">Introduction</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">PyAutogitManager</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#pyautogit">pyautogit</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#find_repos_in_path">find_repos_in_path</a></li>
+        
+            <li><a class="toctree-l4" href="#is_git_repo">is_git_repo</a></li>
+        
+            <li><a class="toctree-l4" href="#parse_args">parse_args</a></li>
+        
+            <li><a class="toctree-l4" href="#main">main</a></li>
+        
+            <li><a class="toctree-l4" href="#pyautogitmanager">PyAutogitManager</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ScreenManager/">Screen Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RepoSelectScreen/">Repo Select</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RepoControlScreen/">Repo Control</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Commands/">Commands</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SettingsScreen/">Settings Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../InternalEditorScreen/">Editor Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../MetadataManager/">Metadata Manager</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">pyautogit Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>For Developers &raquo;</li>
+        
+      
+    
+    <li>PyAutogitManager</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/DocstringGenerated/Pyautogit.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="pyautogit">pyautogit</h1>
+<p>Main pyautogit manager class and entry point</p>
+<p>Author: Jakub Wlodek<br />
+Created: 01-Oct-2019</p>
+<h3 id="find_repos_in_path">find_repos_in_path</h3>
+<pre><code class="python">def find_repos_in_path(path)
+</code></pre>
+
+<p>Helper function that finds repositories in the path</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>str</td>
+<td>Target path</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repos</td>
+<td>list of str</td>
+<td>list of git repositories within target</td>
+</tr>
+</tbody>
+</table>
+<h3 id="is_git_repo">is_git_repo</h3>
+<pre><code class="python">def is_git_repo(path)
+</code></pre>
+
+<p>Simple function that checks if a given path is a git repository</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>str</td>
+<td>path to check</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>is_repo</td>
+<td>bool</td>
+<td>True if .git exists, False otherwise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parse_args">parse_args</h3>
+<pre><code class="python">def parse_args()
+</code></pre>
+
+<p>Function that parses user arguments for pyautogit</p>
+<h4 id="returns_2">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target_repo</td>
+<td>str</td>
+<td>The target path for pyautogit</td>
+</tr>
+<tr>
+<td>save_metadata</td>
+<td>bool</td>
+<td>flag to say if metadata should be saved</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td>list of str</td>
+<td>username, password, if entered</td>
+</tr>
+</tbody>
+</table>
+<h3 id="main">main</h3>
+<pre><code class="python">def main()
+</code></pre>
+
+<p>Entry point for pyautogit. Parses arguments, and initializes the CUI</p>
+<h2 id="pyautogitmanager">PyAutogitManager</h2>
+<pre><code class="python">class PyAutogitManager
+</code></pre>
+
+<p>Main pyautogit manager class. Controls all operations of CUI</p>
+<h4 id="attributes">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root</td>
+<td>PyCUI</td>
+<td>The root py_cui window</td>
+</tr>
+<tr>
+<td>target_path</td>
+<td>str</td>
+<td>The path to the workspace directory</td>
+</tr>
+<tr>
+<td>save_metadata</td>
+<td>bool</td>
+<td>Flag to specify metadata saving or not</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td>list of str</td>
+<td>Username and Password for git remote</td>
+</tr>
+<tr>
+<td>current_state</td>
+<td>str</td>
+<td>Current state of pyautogit (repo control or repo select)</td>
+</tr>
+<tr>
+<td>default_editor</td>
+<td>str</td>
+<td>Command to open external editor</td>
+</tr>
+<tr>
+<td>post_input_callback</td>
+<td>no-arg or lambda function</td>
+<td>Function fired after a user input event</td>
+</tr>
+<tr>
+<td>operation_thread</td>
+<td>Thread</td>
+<td>A thread for performing async operations. Starts as None, Thread created as needed</td>
+</tr>
+<tr>
+<td>repos</td>
+<td>list of str</td>
+<td>List of repositories found in workspace</td>
+</tr>
+<tr>
+<td>repo_select_widget_set</td>
+<td>py_cui.widget_set.WidgetSet</td>
+<td>set of py_cui widgets that are parts of the repo select screen</td>
+</tr>
+<tr>
+<td>repo_menu</td>
+<td>py_cui.widgets.ScrollMenu</td>
+<td>The repository select menu in the repo select screen</td>
+</tr>
+<tr>
+<td>git_status_box</td>
+<td>py_cui.widgets.ScrolledTextBlock</td>
+<td>Main info panel for repo select screen</td>
+</tr>
+<tr>
+<td>current_status_box</td>
+<td>py_cui.widgets.ScrolledTextBlock</td>
+<td>Secondary info panel for repo select screen</td>
+</tr>
+<tr>
+<td>clone_new_box</td>
+<td>py_cui.widgets.TextBox</td>
+<td>Textbox for cloning new repositories</td>
+</tr>
+<tr>
+<td>create_new_box</td>
+<td>py_cui.widgets.TextBox</td>
+<td>Textbox for creating new repositories</td>
+</tr>
+<tr>
+<td>repo_select_manager</td>
+<td>RepoSelectManager</td>
+<td>The manager wrapper class for the repo select screen</td>
+</tr>
+<tr>
+<td>repo_control_widget_set</td>
+<td>py_cui.widget_set.WidgetSet</td>
+<td>set of py_cui widgets that are parts of the repo control screen</td>
+</tr>
+<tr>
+<td>add_files_menu</td>
+<td>py_cui.widgets.ScrollMenu</td>
+<td>Menu for adding/unstaging files</td>
+</tr>
+<tr>
+<td>remotes_menu</td>
+<td>py_cui.widgets.ScrollMenu</td>
+<td>Menu for selecting remotes</td>
+</tr>
+<tr>
+<td>branch_menu</td>
+<td>py_cui.widgets.ScrollMenu</td>
+<td>Menu for selecting branches</td>
+</tr>
+<tr>
+<td>commits_menu</td>
+<td>py_cui.widgets.ScrollMenu</td>
+<td>Menu listing most recent commits</td>
+</tr>
+<tr>
+<td>info_text_block</td>
+<td>py_cui.widgets.ScrolledTextBlock</td>
+<td>Main Info text block in repo control screen</td>
+</tr>
+<tr>
+<td>new_branch_textbox</td>
+<td>py_cui.widgets.TextBox</td>
+<td>Textbox for creating new branches</td>
+</tr>
+<tr>
+<td>commit_message_box</td>
+<td>py_cui.widgets.TextBox</td>
+<td>Textbox for entering new commit messages</td>
+</tr>
+<tr>
+<td>repo_control_manager</td>
+<td>RepoControlManager</td>
+<td>Manager wrapper for repo control screen</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open_not_supported_popup</td>
+<td>Function that displays warning for a non-supported operation</td>
+</tr>
+<tr>
+<td>open_autogit_window</td>
+<td>Function that opens the repository control window.</td>
+</tr>
+<tr>
+<td>open_repo_select_window</td>
+<td>Function that opens the repository select window.</td>
+</tr>
+<tr>
+<td>update_password</td>
+<td>Function called once password is entered.</td>
+</tr>
+<tr>
+<td>ask_password</td>
+<td>Function that opens popup and asks for password. Also writes username to credentials</td>
+</tr>
+<tr>
+<td>ask_credentials</td>
+<td>Function that asks for user credentials and places them in the appropriate variables.</td>
+</tr>
+<tr>
+<td>were_credentials_entered</td>
+<td>Simple function for checking if credentials were entered</td>
+</tr>
+<tr>
+<td>perform_long_operation</td>
+<td>Function that wraps an operation around a loading icon popup.</td>
+</tr>
+<tr>
+<td>update_default_editor</td>
+<td>Function that sets the default editor</td>
+</tr>
+<tr>
+<td>ask_default_editor</td>
+<td>Function that asks user to enter a default text editor</td>
+</tr>
+<tr>
+<td>update_message</td>
+<td>Function that is run after user inputs message</td>
+</tr>
+<tr>
+<td>ask_message</td>
+<td>Function that asks the user for input.</td>
+</tr>
+<tr>
+<td>get_logo_text</td>
+<td>Generates ascii-art version of pyautogit logo</td>
+</tr>
+<tr>
+<td>get_about_info</td>
+<td>Generates some about me information</td>
+</tr>
+<tr>
+<td>get_welcome_message</td>
+<td>Function that gets a basic welcome message shown at first run</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, root, target_path, current_state, save_metadata, credentials)
+</code></pre>
+
+<p>Constructor for PyAutogitManager</p>
+<h3 id="close_cleanup">close_cleanup</h3>
+<pre><code class="python">def close_cleanup(self)
+</code></pre>
+
+<p>Function fired upon closing pyautogit</p>
+<h3 id="clean_exit">clean_exit</h3>
+<pre><code class="python">def clean_exit(self)
+</code></pre>
+
+<p>Function that exits the CUI cleanly</p>
+<h3 id="error_exit">error_exit</h3>
+<pre><code class="python">def error_exit(self)
+</code></pre>
+
+<p>Function that exits the CUI with an error code</p>
+<h3 id="open_not_supported_popup">open_not_supported_popup</h3>
+<pre><code class="python">def open_not_supported_popup(self, operation)
+</code></pre>
+
+<p>Function that displays warning for a non-supported operation</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>operation</td>
+<td>str</td>
+<td>The name of the non-supported operation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="open_autogit_window">open_autogit_window</h3>
+<pre><code class="python">def open_autogit_window(self)
+</code></pre>
+
+<p>Function that opens the repository control window.</p>
+<h3 id="open_autogit_window_target">open_autogit_window_target</h3>
+<pre><code class="python">def open_autogit_window_target(self)
+</code></pre>
+
+<p>Function that opens a repo control window given a target location</p>
+<h3 id="open_repo_select_window">open_repo_select_window</h3>
+<pre><code class="python">def open_repo_select_window(self)
+</code></pre>
+
+<p>Opens the repo select window. Fired when the backspace key is pressed in the repo control window</p>
+<h3 id="open_settings_window">open_settings_window</h3>
+<pre><code class="python">def open_settings_window(self)
+</code></pre>
+
+<p>Function for opening the settings window</p>
+<h3 id="open_editor_window">open_editor_window</h3>
+<pre><code class="python">def open_editor_window(self)
+</code></pre>
+
+<p>Function that opens an editor window</p>
+<h3 id="update_password">update_password</h3>
+<pre><code class="python">def update_password(self, passwd)
+</code></pre>
+
+<p>Function called once password is entered.</p>
+<p>If necessary, fires the post_input_callback function</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>passwd</td>
+<td>str</td>
+<td>The user's password</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ask_password">ask_password</h3>
+<pre><code class="python">def ask_password(self, user)
+</code></pre>
+
+<p>Function that opens popup and asks for password. Also writes username to credentials.</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>str</td>
+<td>The user's username</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ask_credentials">ask_credentials</h3>
+<pre><code class="python">def ask_credentials(self, callback=None)
+</code></pre>
+
+<p>Function that asks for user credentials and places them in the appropriate variables.</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback</td>
+<td>function</td>
+<td>Default None, otherwise function called after credentials are entered.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="were_credentials_entered">were_credentials_entered</h3>
+<pre><code class="python">def were_credentials_entered(self)
+</code></pre>
+
+<p>Simple function for checking if credentials were entered</p>
+<h4 id="returns_3">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>were_credentials_entered</td>
+<td>bool</td>
+<td>True if credentials found, otherwise false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="perform_long_operation">perform_long_operation</h3>
+<pre><code class="python">def perform_long_operation(self, title, long_operation_function, post_loading_callback)
+</code></pre>
+
+<p>Function that wraps an operation around a loading icon popup.</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>title for loading icon</td>
+</tr>
+<tr>
+<td>long_operation_function</td>
+<td>function</td>
+<td>operation to perform in the background</td>
+</tr>
+<tr>
+<td>post_loading_callback</td>
+<td>function</td>
+<td>Function fired once long operation is finished.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update_default_editor">update_default_editor</h3>
+<pre><code class="python">def update_default_editor(self)
+</code></pre>
+
+<p>Function that sets the default editor</p>
+<h4 id="parameters_7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>editor</td>
+<td>str</td>
+<td>command line call to open the editor</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ask_default_editor">ask_default_editor</h3>
+<pre><code class="python">def ask_default_editor(self)
+</code></pre>
+
+<p>Function that asks user to enter a default text editor</p>
+<h3 id="update_message">update_message</h3>
+<pre><code class="python">def update_message(self, message)
+</code></pre>
+
+<p>Function that is run after user inputs message</p>
+<h4 id="parameters_8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td>str</td>
+<td>User returned input</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ask_message">ask_message</h3>
+<pre><code class="python">def ask_message(self, prompt, callback=None)
+</code></pre>
+
+<p>Function that asks the user for input.</p>
+<h4 id="parameters_9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prompt</td>
+<td>str</td>
+<td>Prompt for user input</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>function</td>
+<td>Default None, otherwise, function fired after credentials are asked</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_logo_text">get_logo_text</h3>
+<pre><code class="python">def get_logo_text(self)
+</code></pre>
+
+<p>Generates ascii-art version of pyautogit logo</p>
+<h4 id="returns_4">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>logo</td>
+<td>str</td>
+<td>ascii-art logo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_about_info">get_about_info</h3>
+<pre><code class="python">def get_about_info(self, with_logo=True)
+</code></pre>
+
+<p>Generates some about me information</p>
+<h4 id="parameters_10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>with_logo</td>
+<td>bool</td>
+<td>flag to show logo or not.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_5">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>about_info</td>
+<td>str</td>
+<td>string with about information</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_welcome_message">get_welcome_message</h3>
+<pre><code class="python">def get_welcome_message(self)
+</code></pre>
+
+<p>Function that gets a basic welcome message shown at first run</p>
+<h4 id="returns_6">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>welcome</td>
+<td>str</td>
+<td>welcome message string</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ScreenManager/" class="btn btn-neutral float-right" title="Screen Manager">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../developers/" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../developers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ScreenManager/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

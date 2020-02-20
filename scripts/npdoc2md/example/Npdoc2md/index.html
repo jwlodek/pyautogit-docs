@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
+  <title>npdoc2md - pyautogit Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "npdoc2md";
+    var mkdocs_page_input_path = "scripts\\npdoc2md\\example\\Npdoc2md.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../.." class="icon icon-home"> pyautogit Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../repo_select/">Repo Select Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../repo_control/">Repo Control Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">For Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../developers/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/Pyautogit/">PyAutogitManager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/ScreenManager/">Screen Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/RepoSelectScreen/">Repo Select</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/RepoControlScreen/">Repo Control</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/Commands/">Commands</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/SettingsScreen/">Settings Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/InternalEditorScreen/">Editor Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/Logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../DocstringGenerated/MetadataManager/">Metadata Manager</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../..">pyautogit Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>npdoc2md</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/scripts/npdoc2md/example/Npdoc2md.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="npdoc2md">npdoc2md</h1>
+<p>Script for autogenerating markdown documentation given path to python package with numpy-style comments</p>
+<p>@author: Jakub Wlodek<br />
+@created: Feb-6-2020</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DocStringAttribute</td>
+<td>Stores docstring attribute and its elements. Ex(Parameters)</td>
+</tr>
+<tr>
+<td>ItemInstance</td>
+<td>Base class for encountered programmatic instances</td>
+</tr>
+<tr>
+<td>FunctionInstance</td>
+<td>Represents an encountered function or method</td>
+</tr>
+<tr>
+<td>ClassInstance</td>
+<td>Represents an encountered class</td>
+</tr>
+<tr>
+<td>ModuleInstance</td>
+<td>Represents an encountered module</td>
+</tr>
+<tr>
+<td>ConversionItem</td>
+<td>Single file that needs to be converted. Corresponds to one ModuleInstance object</td>
+</tr>
+<tr>
+<td>MDConverter</td>
+<td>Main conversion driver class</td>
+</tr>
+</tbody>
+</table>
+<h4 id="functions">Functions</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add_docstring_to_instance</td>
+<td>Function that parses a docstring into data structures and adds it to instance object</td>
+</tr>
+<tr>
+<td>grab_module_instance</td>
+<td>Function that takes a module, and generates all instance objects in a top level module instance</td>
+</tr>
+<tr>
+<td>generate_conversion_item_list</td>
+<td>Generates conversion item objects given target</td>
+</tr>
+<tr>
+<td>err_exit</td>
+<td>Exits program with an error</td>
+</tr>
+<tr>
+<td>check_input_output_valid</td>
+<td>Checks if given inputs are valid</td>
+</tr>
+<tr>
+<td>parse_args</td>
+<td>Parses user arguments</td>
+</tr>
+</tbody>
+</table>
+<h2 id="docstringattribute">DocStringAttribute</h2>
+<pre><code class="python">class DocStringAttribute
+</code></pre>
+
+<p>Stores docstring attribute and its elements. Ex(Parameters)</p>
+<h4 id="attributes">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>attribute_name</td>
+<td>str</td>
+<td>Name of the attribute</td>
+</tr>
+<tr>
+<td>attribute_elements</td>
+<td>list of list of str</td>
+<td>List of elements assigned to the attribute for the current instance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, attribute_name)
+</code></pre>
+
+<h2 id="iteminstance">ItemInstance</h2>
+<pre><code class="python">class ItemInstance
+</code></pre>
+
+<p>Base class for encountered programmatic instances</p>
+<h4 id="attributes_1">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Name of the instance (function, class, module name)</td>
+</tr>
+<tr>
+<td>usage</td>
+<td>str</td>
+<td>How to envoke function, method</td>
+</tr>
+<tr>
+<td>simple_description</td>
+<td>str</td>
+<td>Base description</td>
+</tr>
+<tr>
+<td>detailed description</td>
+<td>str</td>
+<td>Additional detailed description</td>
+</tr>
+<tr>
+<td>descriptiors</td>
+<td>dict of str -&gt; DocStringAttribute</td>
+<td>Map of all docstring attribute descriptors</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_simple_description</td>
+<td>Initializes the simple description</td>
+</tr>
+<tr>
+<td>add_to_detailed_description</td>
+<td>Appends to the detailed description</td>
+</tr>
+<tr>
+<td>add_descriptor</td>
+<td>Adds a new descriptor</td>
+</tr>
+<tr>
+<td>generate_md_table_from_descriptor</td>
+<td>Generates markdown table given descriptor</td>
+</tr>
+<tr>
+<td>get_usage_str</td>
+<td>Generates usage markdown</td>
+</tr>
+<tr>
+<td>convert_to_markdown</td>
+<td>Converts current instance state to markdown</td>
+</tr>
+<tr>
+<td><strong>format</strong></td>
+<td>Override of base format class</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_1"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, name: str, usage: str = None)
+</code></pre>
+
+<p>Constructor for ItemInstance</p>
+<h3 id="set_simple_description">set_simple_description</h3>
+<pre><code class="python">def set_simple_description(self, simple_description: str) -&gt; None
+</code></pre>
+
+<p>Initializes the simple description</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>simple_description</td>
+<td>str</td>
+<td>New simple description</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_to_detailed_description">add_to_detailed_description</h3>
+<pre><code class="python">def add_to_detailed_description(self, detailed_description_line: str) -&gt; None
+</code></pre>
+
+<p>Appends to the detailed description</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>detailed_description_line</td>
+<td>str</td>
+<td>New description line</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_descriptor">add_descriptor</h3>
+<pre><code class="python">def add_descriptor(self, descriptor_type: str, descriptor_elements: StringList)
+</code></pre>
+
+<p>Creates a new descriptor</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>descriptor_type</td>
+<td>str</td>
+<td>New descriptor type</td>
+</tr>
+<tr>
+<td>descriptor_elements</td>
+<td>list of str</td>
+<td>New descriptor elements</td>
+</tr>
+</tbody>
+</table>
+<h3 id="generate_md_table_from_descriptor">generate_md_table_from_descriptor</h3>
+<pre><code class="python">def generate_md_table_from_descriptor(self, descriptor: str) -&gt; str
+</code></pre>
+
+<p>Generates markdown table for descriptor</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>descriptor</td>
+<td>str</td>
+<td>Descriptor type</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>md</td>
+<td>str</td>
+<td>Markdown string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_usage_str">get_usage_str</h3>
+<pre><code class="python">def get_usage_str(self) -&gt; str
+</code></pre>
+
+<p>Gets markdown usage string</p>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>md</td>
+<td>str</td>
+<td>Markdown string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="convert_to_markdown">convert_to_markdown</h3>
+<pre><code class="python">def convert_to_markdown(self, heading_level: int) -&gt; str
+</code></pre>
+
+<p>Generates markdown for instance</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heading_level</td>
+<td>int</td>
+<td>The heading emphasis for the instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_2">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>md</td>
+<td>str</td>
+<td>Markdown string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="format"><strong>format</strong></h3>
+<pre><code class="python">def __format__(self, fmt)
+</code></pre>
+
+<p>Override of standard format function</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fmt</td>
+<td>format</td>
+<td>The given format</td>
+</tr>
+</tbody>
+</table>
+<h2 id="functioninstanceiteminstance">FunctionInstance(ItemInstance)</h2>
+<pre><code class="python">class FunctionInstance(ItemInstance)
+</code></pre>
+
+<p>Class representing function instances</p>
+<h3 id="init_2"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, name, usage)
+</code></pre>
+
+<p>Constructor for function instance</p>
+<h2 id="classinstanceiteminstance">ClassInstance(ItemInstance)</h2>
+<pre><code class="python">class ClassInstance(ItemInstance)
+</code></pre>
+
+<p>Class representing class instances</p>
+<h4 id="methods_1">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add_sub_instance</td>
+<td>Adds a sub-instance (methods)</td>
+</tr>
+<tr>
+<td>convert_to_markdown</td>
+<td>Override of base class, returns its own markdown plus sub instances</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_3"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, name, usage)
+</code></pre>
+
+<p>Constructor for Class instance</p>
+<h3 id="add_sub_instance">add_sub_instance</h3>
+<pre><code class="python">def add_sub_instance(self, instance: ItemInstance) -&gt; None
+</code></pre>
+
+<p>Adds a sub-instance (methods)</p>
+<p>instance : ItemInstance
+item instance to add as sub-instance</p>
+<h3 id="convert_to_markdown_1">convert_to_markdown</h3>
+<pre><code class="python">def convert_to_markdown(self, heading_level: int) -&gt; str
+</code></pre>
+
+<p>Override of base class, returns its own markdown plus sub instances</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heading_level</td>
+<td>int</td>
+<td>The heading emphasis for the instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_3">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>md</td>
+<td>str</td>
+<td>Markdown string</td>
+</tr>
+</tbody>
+</table>
+<h2 id="moduleinstanceiteminstance">ModuleInstance(ItemInstance)</h2>
+<pre><code class="python">class ModuleInstance(ItemInstance)
+</code></pre>
+
+<p>Top Level module instance class</p>
+<h4 id="methods_2">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add_sub_instance</td>
+<td>Adds a sub-instance (methods)</td>
+</tr>
+<tr>
+<td>convert_to_markdown</td>
+<td>Override of base class, returns its own markdown plus sub instances</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_4"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, name)
+</code></pre>
+
+<p>Constructor for module instance</p>
+<h3 id="add_sub_instance_1">add_sub_instance</h3>
+<pre><code class="python">def add_sub_instance(self, instance: ItemInstance) -&gt; None
+</code></pre>
+
+<p>Adds a sub-instance (methods)</p>
+<p>instance : ItemInstance
+item instance to add as sub-instance</p>
+<h3 id="convert_to_markdown_2">convert_to_markdown</h3>
+<pre><code class="python">def convert_to_markdown(self, heading_level: int) -&gt; str
+</code></pre>
+
+<p>Override of base class, returns its own markdown plus sub instances</p>
+<h4 id="parameters_7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heading_level</td>
+<td>int</td>
+<td>The heading emphasis for the instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_4">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>md</td>
+<td>str</td>
+<td>Markdown string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_docstring_to_instance">add_docstring_to_instance</h3>
+<pre><code class="python">def add_docstring_to_instance(instance: ItemInstance, doc_string: StringList) -&gt; None
+</code></pre>
+
+<p>Function that parses docstring to data structures and adds to instance</p>
+<h4 id="parameters_8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instance</td>
+<td>ItemInstance</td>
+<td>current instance</td>
+</tr>
+<tr>
+<td>doc_string</td>
+<td>list of str</td>
+<td>Current instance's docstring as list of lines</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grab_module_instance">grab_module_instance</h3>
+<pre><code class="python">def grab_module_instance(file_contents: StringList, file_name: str, parent_package=None) -&gt; InstanceList
+</code></pre>
+
+<p>Function that generates complete instance object for module</p>
+<h4 id="parameters_9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file_contents</td>
+<td>list of str</td>
+<td>Lines in python module file</td>
+</tr>
+<tr>
+<td>file_name</td>
+<td>str</td>
+<td>Name of the file or module</td>
+</tr>
+<tr>
+<td>parent_package=None</td>
+<td>str</td>
+<td>name of the parent package (if applicable)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_5">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>top_module_instance</td>
+<td>ModuleInstance</td>
+<td>module instance object at top level</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conversionitem">ConversionItem</h2>
+<pre><code class="python">class ConversionItem
+</code></pre>
+
+<p>Class representing single file to convert</p>
+<h4 id="attributes_2">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parent_package</td>
+<td>str</td>
+<td>Parent package for file (if applicable)</td>
+</tr>
+<tr>
+<td>file_path</td>
+<td>os.PathLike</td>
+<td>Source file path</td>
+</tr>
+<tr>
+<td>file_name</td>
+<td>str</td>
+<td>Source file name</td>
+</tr>
+<tr>
+<td>md_file_name</td>
+<td>str</td>
+<td>Output markdown file name</td>
+</tr>
+<tr>
+<td>converted_markdown</td>
+<td>str</td>
+<td>Markdown for the module</td>
+</tr>
+<tr>
+<td>module_instance</td>
+<td>ModuleInstance</td>
+<td>Converted module instance</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_3">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>collect_docstrings</td>
+<td>Collects docstrings from file</td>
+</tr>
+<tr>
+<td>generate_markdown</td>
+<td>Generates markdown for file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_5"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, file_path: os.PathLike, parent_package: str=None)
+</code></pre>
+
+<p>Constructor for conversion item class</p>
+<h3 id="collect_docstrings">collect_docstrings</h3>
+<pre><code class="python">def collect_docstrings(self) -&gt; None
+</code></pre>
+
+<p>Collects docstrings from file</p>
+<h3 id="generate_markdown">generate_markdown</h3>
+<pre><code class="python">def generate_markdown(self) -&gt; None
+</code></pre>
+
+<p>Generates markdown for file</p>
+<h2 id="mdconverter">MDConverter</h2>
+<pre><code class="python">class MDConverter
+</code></pre>
+
+<p>Main Driver class for script</p>
+<h4 id="attributes_3">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversion_item_list</td>
+<td>ConversionList</td>
+<td>list of items to convert</td>
+</tr>
+<tr>
+<td>output_loc</td>
+<td>os.PathLike</td>
+<td>Output location for markdown</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_4">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>convert_doc_to_md</td>
+<td>Converts all docstrings to markdown</td>
+</tr>
+<tr>
+<td>generate_markdown_for_item</td>
+<td>Writes generated markdown to file</td>
+</tr>
+<tr>
+<td>execute_conversion_process</td>
+<td>Main driver function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_6"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, conversion_item_list: ConversionList, output_loc: os.PathLike)
+</code></pre>
+
+<p>Constructor for MDConverter</p>
+<h3 id="convert_doc_to_md">convert_doc_to_md</h3>
+<pre><code class="python">def convert_doc_to_md(self, conversion_item: ConversionItem) -&gt; None
+</code></pre>
+
+<p>Converts docstrings to markdown internally</p>
+<h3 id="generate_markdown_for_item">generate_markdown_for_item</h3>
+<pre><code class="python">def generate_markdown_for_item(self, conversion_item: ConversionItem) -&gt; None
+</code></pre>
+
+<p>Generates a markdown file for given conversion item</p>
+<h4 id="parameters_10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversion_item</td>
+<td>ConversionItem</td>
+<td>Conversion item for which to create markdown file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="execute_conversion_process">execute_conversion_process</h3>
+<pre><code class="python">def execute_conversion_process(self) -&gt; None
+</code></pre>
+
+<p>Main Driver function for converter</p>
+<h3 id="generate_conversion_item_list">generate_conversion_item_list</h3>
+<pre><code class="python">def generate_conversion_item_list(target: os.PathLike, ignore_list: StringList) -&gt; ConversionList
+</code></pre>
+
+<p>Generates list of all conversion items</p>
+<h4 id="parameters_11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>os.PathLike</td>
+<td>target of python module or package</td>
+</tr>
+<tr>
+<td>ignore_list</td>
+<td>list of str</td>
+<td>List of filenames to ignore</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_6">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversion_item_list</td>
+<td>ConversionList</td>
+<td>List of all discovered files as conversion items</td>
+</tr>
+</tbody>
+</table>
+<h3 id="err_exit">err_exit</h3>
+<pre><code class="python">def err_exit(message: str, code: int) -&gt; None
+</code></pre>
+
+<p>Exits program with error</p>
+<h4 id="parameters_12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td>str</td>
+<td>error message</td>
+</tr>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>exit code</td>
+</tr>
+</tbody>
+</table>
+<h3 id="check_input_output_valid">check_input_output_valid</h3>
+<pre><code class="python">def check_input_output_valid(target: os.PathLike, output: os.PathLike, ignore_list: StringList) -&gt; (bool, int, str)
+</code></pre>
+
+<p>Checks if given input was valid</p>
+<h4 id="parameters_13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>os.PathLike</td>
+<td>target input location</td>
+</tr>
+<tr>
+<td>output</td>
+<td>os.PathLike</td>
+<td>Markdown output location</td>
+</tr>
+<tr>
+<td>ignore_list</td>
+<td>list of str</td>
+<td>list of filenames to ignore</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_7">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>valid</td>
+<td>bool</td>
+<td>True if valid, false otherwise</td>
+</tr>
+<tr>
+<td>err_code</td>
+<td>int</td>
+<td>Error code if applicable</td>
+</tr>
+<tr>
+<td>err_message</td>
+<td>str</td>
+<td>Error message if applicable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parse_args">parse_args</h3>
+<pre><code class="python">def parse_args() -&gt; (MDConverter, bool)
+</code></pre>
+
+<p>Function that parses user arguments</p>
+<h4 id="returns_8">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>converter</td>
+<td>MDConverter</td>
+<td>Main converter object</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>bool</td>
+<td>toggle for debug printing</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+
+</body>
+</html>

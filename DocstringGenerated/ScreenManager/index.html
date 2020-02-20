@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Screen Manager";
-    var mkdocs_page_input_path = "DocstringGenerated/ScreenManager.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\ScreenManager.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -79,25 +79,22 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../developers.md">Introduction</a>
+    <a class="" href="../../developers/">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../PyAutogit.md">PyAutogitManager</a>
+    <a class="" href="../Pyautogit/">PyAutogitManager</a>
                 </li>
                 <li class=" current">
                     
     <a class="current" href="./">Screen Manager</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#file-containing-class-that-acts-as-a-parent-class-to-all-sub-screen-manager">File containing class that acts as a parent class to all sub-screen manager</a></li>
-    
-
-    <li class="toctree-l3"><a href="#screenmanager">ScreenManager</a></li>
+    <li class="toctree-l3"><a href="#screen_manager">screen_manager</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#methods">Methods</a></li>
+            <li><a class="toctree-l4" href="#screenmanager">ScreenManager</a></li>
         
         </ul>
     
@@ -106,15 +103,31 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../RepoSelect/">Repo Select</a>
+    <a class="" href="../RepoSelectScreen/">Repo Select</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../RepoControl/">Repo Control</a>
+    <a class="" href="../RepoControlScreen/">Repo Control</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../Commands/">Commands</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SettingsScreen/">Settings Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../InternalEditorScreen/">Editor Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../MetadataManager/">Metadata Manager</a>
                 </li>
     </ul>
 	    </li>
@@ -163,287 +176,286 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="file-containing-class-that-acts-as-a-parent-class-to-all-sub-screen-manager">File containing class that acts as a parent class to all sub-screen manager</h1>
-<h1 id="screenmanager">ScreenManager</h1>
-<pre><code class="python"> class ScreenManager 
+                <h1 id="screen_manager">screen_manager</h1>
+<p>File containing class that acts as a parent class to all sub-screen managers</p>
+<h2 id="screenmanager">ScreenManager</h2>
+<pre><code class="python">class ScreenManager
 </code></pre>
 
 <p>Main parent screen manager class.</p>
 <p>Contains common functionality for showing command results, handling credentials, commands, and long operations.</p>
+<h4 id="attributes">Attributes</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Attributes</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">manager</td>
-<td align="left">PyAutogitManager</td>
-<td align="left">Driver engine manager</td>
+<td>manager</td>
+<td>PyAutogitManager</td>
+<td>Driver engine manager</td>
 </tr>
 <tr>
-<td align="left">message</td>
-<td align="left">str</td>
-<td align="left">A variable to store messages accross functions</td>
+<td>message</td>
+<td>str</td>
+<td>A variable to store messages accross functions</td>
 </tr>
 <tr>
-<td align="left">status</td>
-<td align="left">int</td>
-<td align="left">A variable to store status codes accross functions</td>
+<td>status</td>
+<td>int</td>
+<td>A variable to store status codes accross functions</td>
 </tr>
 <tr>
-<td align="left">utility_var</td>
-<td align="left">obj</td>
-<td align="left">A variable that can be used to store any data across functions</td>
+<td>utility_var</td>
+<td>obj</td>
+<td>A variable that can be used to store any data across functions</td>
 </tr>
 <tr>
-<td align="left">menu_choices</td>
-<td align="left">list of str</td>
-<td align="left">Overriden by children, list of options that pop up in menu</td>
+<td>menu_choices</td>
+<td>list of str</td>
+<td>Overriden by children, list of options that pop up in menu</td>
 </tr>
 <tr>
-<td align="left">info_panel</td>
-<td align="left">py_cui.widgets.TextBlock</td>
-<td align="left">The main textblock on the screen, used to display status information.</td>
+<td>info_panel</td>
+<td>py_cui.widgets.TextBlock</td>
+<td>The main textblock on the screen, used to display status information.</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="methods">Methods</h2>
+<h4 id="methods">Methods</h4>
 <table>
 <thead>
 <tr>
-<th align="left">method</th>
-<th align="left">Doc</th>
+<th>Method</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">initialize_screen_elements</td>
-<td align="left">Function that must be overridden by subscreen. Creates py_cui_widgets, returns widget set object.</td>
+<td>process_menu_selection</td>
+<td>Overriden by child, processes based on menu item selection.</td>
 </tr>
 <tr>
-<td align="left">process_menu_selection</td>
-<td align="left">Processes based on selection returned from the men.</td>
+<td>show_command_result</td>
+<td>Displays the result of running a particular command. If more than one line of output, prints to info panel, otherwise, shows popup.</td>
 </tr>
 <tr>
-<td align="left">show_menu</td>
-<td align="left">Opens the menu using the menu item list for screen manager instanc.</td>
+<td>show_status_long_op</td>
+<td>Used instead of show_command_result for long (async) operations</td>
 </tr>
 <tr>
-<td align="left">show_command_result</td>
-<td align="left">Function that displays the result of stdout/err for an external command.</td>
+<td>show_menu</td>
+<td>Opens the menu for the screen manager object</td>
 </tr>
 <tr>
-<td align="left">show_status_long_op</td>
-<td align="left">Shows the status of a long(async) operation on success completio.</td>
+<td>refresh_git_status</td>
+<td>Function called after each git operation by children. Must be overriden</td>
 </tr>
 <tr>
-<td align="left">refresh_status</td>
-<td align="left">Function that is fired after each git operation. Implement in subclasses.</td>
+<td>handle_user_command</td>
+<td>Processes a custom command from the user</td>
 </tr>
 <tr>
-<td align="left">clear_elements</td>
-<td align="left">Function that clears entries from widgets for reus.</td>
+<td>ask_custom_command</td>
+<td>Prompts user to enter a custom command</td>
 </tr>
 <tr>
-<td align="left">set_initial_values</td>
-<td align="left">Function that sets initial values for widgets in scree.</td>
-</tr>
-<tr>
-<td align="left">handle_user_command</td>
-<td align="left">Handles custom user command.</td>
-</tr>
-<tr>
-<td align="left">ask_custom_command</td>
-<td align="left">Function that prompts user to enter custom comman.</td>
-</tr>
-<tr>
-<td align="left">execute_long_operation</td>
-<td align="left">Wrapper function that allows for executing long operations w/ credential requirements.</td>
+<td>execute_long_operation</td>
+<td>Wrapper function that should be used as lambda operation. Allows for performing long async operation while loading icon runs</td>
 </tr>
 </tbody>
 </table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, top_manager, screen_type)
+</code></pre>
+
+<p>Constructor for ScreenManager</p>
 <h3 id="initialize_screen_elements">initialize_screen_elements</h3>
-<pre><code class="python">    initialize_screen_elements() 
+<pre><code class="python">def initialize_screen_elements(self)
 </code></pre>
 
 <p>Function that must be overridden by subscreen. Creates py_cui_widgets, returns widget set object.</p>
 <h3 id="process_menu_selection">process_menu_selection</h3>
-<pre><code class="python">    process_menu_selection(selection) 
+<pre><code class="python">def process_menu_selection(self, selection)
 </code></pre>
 
-<p>Processes based on selection returned from the men.</p>
+<p>Processes based on selection returned from the menu</p>
+<h4 id="parameters">Parameters</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">selection</td>
-<td align="left">str</td>
-<td align="left">An element of the self.menu_choices list selected by user</td>
+<td>selection</td>
+<td>str</td>
+<td>An element of the self.menu_choices list selected by user</td>
 </tr>
 </tbody>
 </table>
 <h3 id="show_menu">show_menu</h3>
-<pre><code class="python">    show_menu() 
+<pre><code class="python">def show_menu(self)
 </code></pre>
 
-<p>Opens the menu using the menu item list for screen manager instanc.</p>
+<p>Opens the menu using the menu item list for screen manager instance</p>
 <h3 id="show_command_result">show_command_result</h3>
-<pre><code class="python">    show_command_result(out, err, show_on_success = True, command_name='Command', success_message='Success', error_message='Error') 
+<pre><code class="python">def show_command_result(self, out, err, show_on_success = True, command_name='Command', success_message='Success', error_message='Error')
 </code></pre>
 
 <p>Function that displays the result of stdout/err for an external command.</p>
+<h4 id="parameters_1">Parameters</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">out</td>
-<td align="left">str</td>
-<td align="left">stdout string from command</td>
+<td>out</td>
+<td>str</td>
+<td>stdout string from command</td>
 </tr>
 <tr>
-<td align="left">err</td>
-<td align="left">str</td>
-<td align="left">stderr string from command</td>
+<td>err</td>
+<td>str</td>
+<td>stderr string from command</td>
 </tr>
 <tr>
-<td align="left">show_on_success</td>
-<td align="left">bool</td>
-<td align="left">Set to false to show no messages on success. (ex. git log doesnt need success message)</td>
+<td>show_on_success</td>
+<td>bool</td>
+<td>Set to false to show no messages on success. (ex. git log doesnt need success message)</td>
 </tr>
 <tr>
-<td align="left">command_name</td>
-<td align="left">str</td>
-<td align="left">name of command run.</td>
+<td>command_name</td>
+<td>str</td>
+<td>name of command run.</td>
 </tr>
 <tr>
-<td align="left">success_message</td>
-<td align="left">str</td>
-<td align="left">message to show on successful completion</td>
+<td>success_message</td>
+<td>str</td>
+<td>message to show on successful completion</td>
 </tr>
 <tr>
-<td align="left">error_message</td>
-<td align="left">str</td>
-<td align="left">message to show on unsuccessful completion</td>
+<td>error_message</td>
+<td>str</td>
+<td>message to show on unsuccessful completion</td>
 </tr>
 </tbody>
 </table>
 <h3 id="show_status_long_op">show_status_long_op</h3>
-<pre><code class="python">    show_status_long_op(name='Command', succ_message=&quot;Success&quot;, err_message = &quot;Error&quot;) 
+<pre><code class="python">def show_status_long_op(self, name='Command', succ_message=&quot;Success&quot;, err_message = &quot;Error&quot;)
 </code></pre>
 
-<p>Shows the status of a long(async) operation on success completio.</p>
+<p>Shows the status of a long(async) operation on success completion</p>
+<h4 id="parameters_2">Parameters</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">name</td>
-<td align="left">str</td>
-<td align="left">name of command run.</td>
+<td>name</td>
+<td>str</td>
+<td>name of command run.</td>
 </tr>
 <tr>
-<td align="left">succ_message</td>
-<td align="left">str</td>
-<td align="left">message to show on successful completion</td>
+<td>succ_message</td>
+<td>str</td>
+<td>message to show on successful completion</td>
 </tr>
 <tr>
-<td align="left">err_message</td>
-<td align="left">str</td>
-<td align="left">message to show on unsuccessful completion</td>
+<td>err_message</td>
+<td>str</td>
+<td>message to show on unsuccessful completion</td>
 </tr>
 </tbody>
 </table>
 <h3 id="refresh_status">refresh_status</h3>
-<pre><code class="python">    refresh_status() 
+<pre><code class="python">def refresh_status(self)
 </code></pre>
 
 <p>Function that is fired after each git operation. Implement in subclasses.</p>
 <h3 id="clear_elements">clear_elements</h3>
-<pre><code class="python">    clear_elements() 
+<pre><code class="python">def clear_elements(self)
 </code></pre>
 
-<p>Function that clears entries from widgets for reus.</p>
+<p>Function that clears entries from widgets for reuse</p>
 <h3 id="set_initial_values">set_initial_values</h3>
-<pre><code class="python">    set_initial_values() 
+<pre><code class="python">def set_initial_values(self)
 </code></pre>
 
-<p>Function that sets initial values for widgets in scree.</p>
+<p>Function that sets initial values for widgets in screen</p>
 <h3 id="handle_user_command">handle_user_command</h3>
-<pre><code class="python">    handle_user_command(command) 
+<pre><code class="python">def handle_user_command(self, command)
 </code></pre>
 
 <p>Handles custom user command.</p>
+<h4 id="parameters_3">Parameters</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">command</td>
-<td align="left">str</td>
-<td align="left">The string command entered by the user</td>
+<td>command</td>
+<td>str</td>
+<td>The string command entered by the user</td>
 </tr>
 </tbody>
 </table>
 <h3 id="ask_custom_command">ask_custom_command</h3>
-<pre><code class="python">    ask_custom_command() 
+<pre><code class="python">def ask_custom_command(self)
 </code></pre>
 
-<p>Function that prompts user to enter custom comman.</p>
+<p>Function that prompts user to enter custom command</p>
 <h3 id="execute_long_operation">execute_long_operation</h3>
-<pre><code class="python">    execute_long_operation(loading_messge, long_op_function, credentials_required=False) 
+<pre><code class="python">def execute_long_operation(self, loading_messge, long_op_function, credentials_required=False)
 </code></pre>
 
 <p>Wrapper function that allows for executing long operations w/ credential requirements.</p>
+<h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">loading_message</td>
-<td align="left">str</td>
-<td align="left">Message displayed while async op is performed</td>
+<td>loading_message</td>
+<td>str</td>
+<td>Message displayed while async op is performed</td>
 </tr>
 <tr>
-<td align="left">long_op_function</td>
-<td align="left">no-arg or lambda function</td>
-<td align="left">Function that is fired in an async second thread</td>
+<td>long_op_function</td>
+<td>no-arg or lambda function</td>
+<td>Function that is fired in an async second thread</td>
 </tr>
 <tr>
-<td align="left">credentials_required</td>
-<td align="left">bool</td>
-<td align="left">If true, prompts to enter credentials before starting async op</td>
+<td>credentials_required</td>
+<td>bool</td>
+<td>If true, prompts to enter credentials before starting async op</td>
 </tr>
 </tbody>
 </table>
@@ -454,10 +466,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../RepoSelect/" class="btn btn-neutral float-right" title="Repo Select">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../RepoSelectScreen/" class="btn btn-neutral float-right" title="Repo Select">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../repo_control/" class="btn btn-neutral" title="Repo Control Screen"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Pyautogit/" class="btn btn-neutral" title="PyAutogitManager"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -487,10 +499,10 @@
           <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../repo_control/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Pyautogit/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../RepoSelect/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../RepoSelectScreen/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

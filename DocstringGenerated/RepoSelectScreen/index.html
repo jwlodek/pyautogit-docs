@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Repo Select";
-    var mkdocs_page_input_path = "DocstringGenerated/RepoSelect.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\RepoSelectScreen.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -79,11 +79,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../developers.md">Introduction</a>
+    <a class="" href="../../developers/">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../PyAutogit.md">PyAutogitManager</a>
+    <a class="" href="../Pyautogit/">PyAutogitManager</a>
                 </li>
                 <li class="">
                     
@@ -94,14 +94,11 @@
     <a class="current" href="./">Repo Select</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#manager-implementation-for-cui-screen-for-selecting-different-repositories">Manager implementation for CUI screen for selecting different repositories</a></li>
-    
-
-    <li class="toctree-l3"><a href="#reposelectmanager">RepoSelectManager</a></li>
+    <li class="toctree-l3"><a href="#repo_select_screen">repo_select_screen</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#methods">Methods</a></li>
+            <li><a class="toctree-l4" href="#reposelectmanagerpyautogitscreen_managerscreenmanager">RepoSelectManager(pyautogit.screen_manager.ScreenManager)</a></li>
         
         </ul>
     
@@ -110,11 +107,27 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../RepoControl/">Repo Control</a>
+    <a class="" href="../RepoControlScreen/">Repo Control</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../Commands/">Commands</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SettingsScreen/">Settings Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../InternalEditorScreen/">Editor Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../MetadataManager/">Metadata Manager</a>
                 </li>
     </ul>
 	    </li>
@@ -153,7 +166,7 @@
     <li>Repo Select</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/DocstringGenerated/RepoSelect.md"
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/DocstringGenerated/RepoSelectScreen.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -163,135 +176,175 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="manager-implementation-for-cui-screen-for-selecting-different-repositories">Manager implementation for CUI screen for selecting different repositories</h1>
-<h1 id="reposelectmanager">RepoSelectManager</h1>
-<pre><code class="python"> class RepoSelectManager(pyautogit.screen_manager.ScreenManager) 
+                <h1 id="repo_select_screen">repo_select_screen</h1>
+<p>Manager implementation for CUI screen for selecting different repositories.</p>
+<h2 id="reposelectmanagerpyautogitscreen_managerscreenmanager">RepoSelectManager(pyautogit.screen_manager.ScreenManager)</h2>
+<pre><code class="python">class RepoSelectManager(pyautogit.screen_manager.ScreenManager)
 </code></pre>
 
-<p>Class representing the manager for the repo select scree.</p>
+<p>Class representing the manager for the repo select screen</p>
+<h4 id="attributes">Attributes</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Attributes</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">menu_choices</td>
-<td align="left">list of str</td>
-<td align="left">Overriden attribute from base class with expanded menu choices.</td>
+<td>menu_choices</td>
+<td>list of str</td>
+<td>Overriden attribute from base class with expanded menu choices.</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="methods">Methods</h2>
+<h4 id="methods">Methods</h4>
 <table>
 <thead>
 <tr>
-<th align="left">method</th>
-<th align="left">Doc</th>
+<th>Method</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">process_menu_selection</td>
-<td align="left">Override of base class, executes depending on menu selectio.</td>
+<td>process_menu_selection</td>
+<td>Override of base class, executes depending on menu selection</td>
 </tr>
 <tr>
-<td align="left">initialize_screen_elements</td>
-<td align="left">Function that refreshes the repositories in the selection scree.</td>
+<td>refresh_status</td>
+<td>Function that refreshes the repositories in the selection screen</td>
 </tr>
 <tr>
-<td align="left">ask_delete_repo</td>
-<td align="left">Function that asks user for confirmation for repo deletio.</td>
+<td>ask_delete_repo</td>
+<td>Function that asks user for confirmation for repo deletion</td>
 </tr>
 <tr>
-<td align="left">delete_repo</td>
-<td align="left">Function that deletes a rep.</td>
+<td>delete_repo</td>
+<td>Function that deletes a repo</td>
 </tr>
 <tr>
-<td align="left">show_repo_status</td>
-<td align="left">Function that shows the current repository statu.</td>
+<td>show_repo_status</td>
+<td>Function that displays git status info for current repo</td>
 </tr>
 <tr>
-<td align="left">clone_new_repo</td>
-<td align="left">Function that clones new repo from given UR.</td>
+<td>clone_new_repo</td>
+<td>Function that clones new repo from given URL</td>
 </tr>
 <tr>
-<td align="left">create_new_repo</td>
-<td align="left">Function that creates a new repo with a given nam.</td>
+<td>create_new_repo</td>
+<td>Function that creates a new repo with a given name</td>
 </tr>
 </tbody>
 </table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, top_manager)
+</code></pre>
+
+<p>Constructor for repo select manager</p>
 <h3 id="process_menu_selection">process_menu_selection</h3>
-<pre><code class="python">    process_menu_selection(selection) 
+<pre><code class="python">def process_menu_selection(self, selection)
 </code></pre>
 
-<p>Override of base class, executes depending on menu selectio.</p>
+<p>Override of base class, executes depending on menu selection</p>
+<h4 id="parameters">Parameters</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">selection</td>
-<td align="left">str</td>
-<td align="left">The user's menu selection</td>
+<td>selection</td>
+<td>str</td>
+<td>The user's menu selection</td>
 </tr>
 </tbody>
 </table>
 <h3 id="initialize_screen_elements">initialize_screen_elements</h3>
-<pre><code class="python">    initialize_screen_elements() 
+<pre><code class="python">def initialize_screen_elements(self)
 </code></pre>
 
-<p>Function that refreshes the repositories in the selection scree.</p>
-<h3 id="ask_delete_repo">ask_delete_repo</h3>
-<pre><code class="python">    ask_delete_repo() 
-</code></pre>
-
-<p>Function that asks user for confirmation for repo deletio.</p>
-<h3 id="delete_repo">delete_repo</h3>
-<pre><code class="python">    delete_repo(to_delete) 
-</code></pre>
-
-<p>Function that deletes a rep.</p>
+<p>Override of base function. Initializes widgets, returns screen widget set</p>
+<h4 id="returns">Returns</h4>
 <table>
 <thead>
 <tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">to_delete</td>
-<td align="left">bool</td>
-<td align="left">User's response of request for confirmation of deletion</td>
+<td>repo_select_widget_set</td>
+<td>py_cui.widget_set.WidgetSet</td>
+<td>Widget set object for repo select screen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="clear_elements">clear_elements</h3>
+<pre><code class="python">def clear_elements(self)
+</code></pre>
+
+<p>Override of base class function, clears text fields</p>
+<h3 id="set_initial_values">set_initial_values</h3>
+<pre><code class="python">def set_initial_values(self)
+</code></pre>
+
+<p>Override of base function. Sets some initial text for the widgets</p>
+<h3 id="refresh_status">refresh_status</h3>
+<pre><code class="python">def refresh_status(self)
+</code></pre>
+
+<p>Function that refreshes the repositories in the selection screen</p>
+<h3 id="ask_delete_repo">ask_delete_repo</h3>
+<pre><code class="python">def ask_delete_repo(self)
+</code></pre>
+
+<p>Function that asks user for confirmation for repo deletion</p>
+<h3 id="delete_repo">delete_repo</h3>
+<pre><code class="python">def delete_repo(self, to_delete)
+</code></pre>
+
+<p>Function that deletes a repo</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>to_delete</td>
+<td>bool</td>
+<td>User's response of request for confirmation of deletion</td>
 </tr>
 </tbody>
 </table>
 <h3 id="show_repo_status">show_repo_status</h3>
-<pre><code class="python">    show_repo_status() 
+<pre><code class="python">def show_repo_status(self)
 </code></pre>
 
-<p>Function that shows the current repository statu.</p>
+<p>Function that shows the current repository status</p>
 <h3 id="clone_new_repo">clone_new_repo</h3>
-<pre><code class="python">    clone_new_repo() 
+<pre><code class="python">def clone_new_repo(self)
 </code></pre>
 
-<p>Function that clones new repo from given UR.</p>
+<p>Function that clones new repo from given URL</p>
 <h3 id="create_new_repo">create_new_repo</h3>
-<pre><code class="python">    create_new_repo() 
+<pre><code class="python">def create_new_repo(self)
 </code></pre>
 
-<p>Function that creates a new repo with a given nam.</p>
+<p>Function that creates a new repo with a given name</p>
               
             </div>
           </div>
@@ -299,7 +352,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../RepoControl/" class="btn btn-neutral float-right" title="Repo Control">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../RepoControlScreen/" class="btn btn-neutral float-right" title="Repo Control">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../ScreenManager/" class="btn btn-neutral" title="Screen Manager"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -335,7 +388,7 @@
         <span><a href="../ScreenManager/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../RepoControl/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../RepoControlScreen/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

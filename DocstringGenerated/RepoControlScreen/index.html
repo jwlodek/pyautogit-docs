@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Repo Control - pyautogit Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Repo Control";
+    var mkdocs_page_input_path = "DocstringGenerated\\RepoControlScreen.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> pyautogit Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../usage/">Basic Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../repo_select/">Repo Select Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../repo_control/">Repo Control Screen</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">For Developers</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developers/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Pyautogit/">PyAutogitManager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ScreenManager/">Screen Manager</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../RepoSelectScreen/">Repo Select</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Repo Control</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#repo_control_screen">repo_control_screen</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#repocontrolmanagerpyautogitscreen_managerscreenmanager">RepoControlManager(pyautogit.screen_manager.ScreenManager)</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Commands/">Commands</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SettingsScreen/">Settings Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../InternalEditorScreen/">Editor Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../MetadataManager/">Metadata Manager</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">pyautogit Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>For Developers &raquo;</li>
+        
+      
+    
+    <li>Repo Control</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/DocstringGenerated/RepoControlScreen.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="repo_control_screen">repo_control_screen</h1>
+<p>File containing functions used by the repository specific CUI screen.</p>
+<p>This file is meant to handle the intermediate considerations between the 
+CUI and the underlying git commands found in pyautogit.commands</p>
+<p>Author: Jakub Wlodek
+Created: 01-Oct-2019</p>
+<h2 id="repocontrolmanagerpyautogitscreen_managerscreenmanager">RepoControlManager(pyautogit.screen_manager.ScreenManager)</h2>
+<pre><code class="python">class RepoControlManager(pyautogit.screen_manager.ScreenManager)
+</code></pre>
+
+<p>Class responsible for managing functions for the repository control screen.</p>
+<p>This class contains functions that are used by pyautogit for individual repository control.
+It provides the interface between the CUI widgets for the repository control screen and
+the pyautogit.commands module.</p>
+<h4 id="attributes">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>menu_choices</td>
+<td>list of str</td>
+<td>Overriden list of menu choices accessible from the repository control menu</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>process_menu_selection</td>
+<td>Override of base class, executes based on user menu selection</td>
+</tr>
+<tr>
+<td>refresh_status</td>
+<td>Function that refreshes a git repository status</td>
+</tr>
+<tr>
+<td>get_repo_status_short</td>
+<td>Gets shorthand repository status</td>
+</tr>
+<tr>
+<td>get_repo_remotes</td>
+<td>gets list of repository remotes</td>
+</tr>
+<tr>
+<td>get_repo_branches</td>
+<td>gets list of repository branches</td>
+</tr>
+<tr>
+<td>show_remote_info</td>
+<td>gets info about remote</td>
+</tr>
+<tr>
+<td>show_commit_info</td>
+<td>gets info about a particular commit</td>
+</tr>
+<tr>
+<td>get_recent_commits</td>
+<td>gets list of recent commits to branch</td>
+</tr>
+<tr>
+<td>create_new_tag</td>
+<td>Creates a new tag</td>
+</tr>
+<tr>
+<td>show_log</td>
+<td>Displays the git log</td>
+</tr>
+<tr>
+<td>stash_all_changes</td>
+<td>Stashes all repo changes</td>
+</tr>
+<tr>
+<td>unstash_all_changes</td>
+<td>Pops the stash</td>
+</tr>
+<tr>
+<td>open_git_diff</td>
+<td>Opens current git diff state</td>
+</tr>
+<tr>
+<td>open_git_diff_file</td>
+<td>Gets the diff for a selected file</td>
+</tr>
+<tr>
+<td>open_editor</td>
+<td>Opens an external editor if selected</td>
+</tr>
+<tr>
+<td>open_editor_file</td>
+<td>Opens an external editor for a selected file</td>
+</tr>
+<tr>
+<td>add_all_changes</td>
+<td>Adds all changes to staging</td>
+</tr>
+<tr>
+<td>add_revert_file</td>
+<td>Adds/Reverts single file from staging</td>
+</tr>
+<tr>
+<td>ask_new_remote_name</td>
+<td>Asks user for new remote name</td>
+</tr>
+<tr>
+<td>ask_new_remote_url</td>
+<td>Asks user for new remote url</td>
+</tr>
+<tr>
+<td>add_remote</td>
+<td>Adds a new remote to repo</td>
+</tr>
+<tr>
+<td>delete_remote</td>
+<td>Deletes selected remote from local repo</td>
+</tr>
+<tr>
+<td>rename_remote</td>
+<td>Renames selected remote from local repo</td>
+</tr>
+<tr>
+<td>commit</td>
+<td>Commits currently staged items</td>
+</tr>
+<tr>
+<td>pull_repo_branch</td>
+<td>pulls from remote</td>
+</tr>
+<tr>
+<td>push_repo_branch</td>
+<td>pushes to remote</td>
+</tr>
+<tr>
+<td>create_new_branch</td>
+<td>Creates new branch for repository</td>
+</tr>
+<tr>
+<td>checkout_branch</td>
+<td>Checks out specified branch</td>
+</tr>
+<tr>
+<td>checkout_commit</td>
+<td>Checks out specified commit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, top_manager)
+</code></pre>
+
+<p>Constructor for the RepoControlManager class</p>
+<h3 id="process_menu_selection">process_menu_selection</h3>
+<pre><code class="python">def process_menu_selection(self, selection)
+</code></pre>
+
+<p>Override of base class, executes based on user menu selection</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selection</td>
+<td>str</td>
+<td>User selection from menu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="initialize_screen_elements">initialize_screen_elements</h3>
+<pre><code class="python">def initialize_screen_elements(self)
+</code></pre>
+
+<p>Function that initializes the widgets for the repo control screen. Override of base class function</p>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repo_control_widget_set</td>
+<td>py_cui.widget_set.WidgetSet</td>
+<td>Widget set object for repo control screen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="clear_elements">clear_elements</h3>
+<pre><code class="python">def clear_elements(self)
+</code></pre>
+
+<p>Function that clears elements of repo control window</p>
+<h3 id="set_initial_values">set_initial_values</h3>
+<pre><code class="python">def set_initial_values(self)
+</code></pre>
+
+<p>Function that initializes status bar and info text for repo control window</p>
+<h3 id="refresh_status">refresh_status</h3>
+<pre><code class="python">def refresh_status(self)
+</code></pre>
+
+<p>Function that refreshes a git repository status</p>
+<h3 id="get_repo_status_short">get_repo_status_short</h3>
+<pre><code class="python">def get_repo_status_short(self)
+</code></pre>
+
+<p>Gets shorthand repository status</p>
+<h3 id="get_repo_remotes">get_repo_remotes</h3>
+<pre><code class="python">def get_repo_remotes(self)
+</code></pre>
+
+<p>Gets list of repository remotes</p>
+<h3 id="show_branches">show_branches</h3>
+<pre><code class="python">def show_branches(self)
+</code></pre>
+
+<p>Function that swaps to showing branches</p>
+<h3 id="get_repo_branches">get_repo_branches</h3>
+<pre><code class="python">def get_repo_branches(self)
+</code></pre>
+
+<p>Gets list of repository branches</p>
+<h3 id="show_tags">show_tags</h3>
+<pre><code class="python">def show_tags(self)
+</code></pre>
+
+<p>Function that swaps to showing tags</p>
+<h3 id="get_repo_tags">get_repo_tags</h3>
+<pre><code class="python">def get_repo_tags(self)
+</code></pre>
+
+<p>Gets list of repository tags</p>
+<h3 id="show_remote_info">show_remote_info</h3>
+<pre><code class="python">def show_remote_info(self)
+</code></pre>
+
+<p>Gets info about remote</p>
+<h3 id="show_commit_info">show_commit_info</h3>
+<pre><code class="python">def show_commit_info(self)
+</code></pre>
+
+<p>Gets info about a particular commit</p>
+<h3 id="get_recent_commits">get_recent_commits</h3>
+<pre><code class="python">def get_recent_commits(self)
+</code></pre>
+
+<p>Gets list of recent commits to branch</p>
+<h3 id="create_new_tag">create_new_tag</h3>
+<pre><code class="python">def create_new_tag(self)
+</code></pre>
+
+<p>Creates a new tag</p>
+<h3 id="show_log">show_log</h3>
+<pre><code class="python">def show_log(self)
+</code></pre>
+
+<p>Displays the git log</p>
+<h3 id="show_tree">show_tree</h3>
+<pre><code class="python">def show_tree(self)
+</code></pre>
+
+<p>Displays git log as a tree</p>
+<h3 id="stash_all_changes">stash_all_changes</h3>
+<pre><code class="python">def stash_all_changes(self)
+</code></pre>
+
+<p>Stashes all repo changes</p>
+<h3 id="unstash_all_changes">unstash_all_changes</h3>
+<pre><code class="python">def unstash_all_changes(self)
+</code></pre>
+
+<p>Pops the stash</p>
+<h3 id="open_git_diff">open_git_diff</h3>
+<pre><code class="python">def open_git_diff(self)
+</code></pre>
+
+<p>Opens current git diff state</p>
+<h3 id="open_git_diff_file">open_git_diff_file</h3>
+<pre><code class="python">def open_git_diff_file(self)
+</code></pre>
+
+<p>Gets the diff for a selected file</p>
+<h3 id="open_editor">open_editor</h3>
+<pre><code class="python">def open_editor(self, file=None)
+</code></pre>
+
+<p>Opens an external editor if selected</p>
+<h3 id="open_editor_file">open_editor_file</h3>
+<pre><code class="python">def open_editor_file(self)
+</code></pre>
+
+<p>Opens an external editor for a selected file</p>
+<h3 id="add_all_changes">add_all_changes</h3>
+<pre><code class="python">def add_all_changes(self)
+</code></pre>
+
+<p>Adds all changes to staging</p>
+<h3 id="add_revert_file">add_revert_file</h3>
+<pre><code class="python">def add_revert_file(self)
+</code></pre>
+
+<p>Adds/Reverts single file from staging</p>
+<h3 id="ask_new_remote_name">ask_new_remote_name</h3>
+<pre><code class="python">def ask_new_remote_name(self)
+</code></pre>
+
+<p>Opens text box to enter new remote name</p>
+<h3 id="ask_new_remote_url">ask_new_remote_url</h3>
+<pre><code class="python">def ask_new_remote_url(self, remote_name)
+</code></pre>
+
+<p>Opens text box to ask new remote url</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote_name</td>
+<td>str</td>
+<td>Remote name entered in previous textbox</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_remote">add_remote</h3>
+<pre><code class="python">def add_remote(self, remote_url)
+</code></pre>
+
+<p>Adds remote to git repo</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote_url</td>
+<td>str</td>
+<td>URL entered by user</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete_remote">delete_remote</h3>
+<pre><code class="python">def delete_remote(self)
+</code></pre>
+
+<p>Deletes selected remote from local repo</p>
+<h3 id="rename_remote">rename_remote</h3>
+<pre><code class="python">def rename_remote(self)
+</code></pre>
+
+<p>Renames selected remote from local repo</p>
+<h3 id="commit">commit</h3>
+<pre><code class="python">def commit(self)
+</code></pre>
+
+<p>Commits currently staged items</p>
+<h3 id="pull_repo_branch">pull_repo_branch</h3>
+<pre><code class="python">def pull_repo_branch(self)
+</code></pre>
+
+<p>Pulls from remote</p>
+<h3 id="push_repo_branch">push_repo_branch</h3>
+<pre><code class="python">def push_repo_branch(self)
+</code></pre>
+
+<p>Pushes to remote</p>
+<h3 id="create_new_branch">create_new_branch</h3>
+<pre><code class="python">def create_new_branch(self)
+</code></pre>
+
+<p>Creates new branch for repository</p>
+<h3 id="delete_branch">delete_branch</h3>
+<pre><code class="python">def delete_branch(self)
+</code></pre>
+
+<p>Deletes selected branch</p>
+<h3 id="checkout_branch">checkout_branch</h3>
+<pre><code class="python">def checkout_branch(self)
+</code></pre>
+
+<p>Checks out specified branch</p>
+<h3 id="merge_branches">merge_branches</h3>
+<pre><code class="python">def merge_branches(self)
+</code></pre>
+
+<p>Merges selected branch into the currently checked out branch</p>
+<h3 id="revert_merge">revert_merge</h3>
+<pre><code class="python">def revert_merge(self)
+</code></pre>
+
+<p>Undos the merge that was just performed</p>
+<h3 id="checkout_commit">checkout_commit</h3>
+<pre><code class="python">def checkout_commit(self)
+</code></pre>
+
+<p>Checks out specified commit</p>
+<h3 id="show_help_overview">show_help_overview</h3>
+<pre><code class="python">def show_help_overview(self)
+</code></pre>
+
+<p>Function that displays help message for overview mode.</p>
+<h3 id="show_help_add_files_menu">show_help_add_files_menu</h3>
+<pre><code class="python">def show_help_add_files_menu(self)
+</code></pre>
+
+<p>Function that displays help message for the add files menu.</p>
+<h3 id="show_help_remotes_menu">show_help_remotes_menu</h3>
+<pre><code class="python">def show_help_remotes_menu(self)
+</code></pre>
+
+<p>Function that displays help message for the add files menu.</p>
+<h3 id="show_help_branch_menu">show_help_branch_menu</h3>
+<pre><code class="python">def show_help_branch_menu(self)
+</code></pre>
+
+<p>Function that displays help message for the add files menu.</p>
+<h3 id="show_help_commits_menu">show_help_commits_menu</h3>
+<pre><code class="python">def show_help_commits_menu(self)
+</code></pre>
+
+<p>Function that displays help message for the add files menu.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Commands/" class="btn btn-neutral float-right" title="Commands">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../RepoSelectScreen/" class="btn btn-neutral" title="Repo Select"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../RepoSelectScreen/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Commands/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

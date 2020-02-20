@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Commands";
-    var mkdocs_page_input_path = "DocstringGenerated/Commands.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\Commands.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -79,11 +79,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../developers.md">Introduction</a>
+    <a class="" href="../../developers/">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../PyAutogit.md">PyAutogitManager</a>
+    <a class="" href="../Pyautogit/">PyAutogitManager</a>
                 </li>
                 <li class="">
                     
@@ -91,21 +91,57 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../RepoSelect/">Repo Select</a>
+    <a class="" href="../RepoSelectScreen/">Repo Select</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../RepoControl/">Repo Control</a>
+    <a class="" href="../RepoControlScreen/">Repo Control</a>
                 </li>
                 <li class=" current">
                     
     <a class="current" href="./">Commands</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#file-containing-all-definitions-and-functions-for-git-commands-used-by-pyautogit">File containing all definitions and functions for git commands used by pyautogit</a></li>
+    <li class="toctree-l3"><a href="#commands">commands</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#remove_repo_tree">remove_repo_tree</a></li>
+        
+            <li><a class="toctree-l4" href="#del_rw">del_rw</a></li>
+        
+            <li><a class="toctree-l4" href="#handle_credential_command">handle_credential_command</a></li>
+        
+            <li><a class="toctree-l4" href="#parse_string_into_executable_command">parse_string_into_executable_command</a></li>
+        
+            <li><a class="toctree-l4" href="#handle_basic_command">handle_basic_command</a></li>
+        
+            <li><a class="toctree-l4" href="#handle_open_external_program_command">handle_open_external_program_command</a></li>
+        
+            <li><a class="toctree-l4" href="#handle_custom_command">handle_custom_command</a></li>
+        
+            <li><a class="toctree-l4" href="#patameters">Patameters</a></li>
+        
+        </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SettingsScreen/">Settings Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../InternalEditorScreen/">Editor Screen</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../MetadataManager/">Metadata Manager</a>
                 </li>
     </ul>
 	    </li>
@@ -154,10 +190,1745 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="file-containing-all-definitions-and-functions-for-git-commands-used-by-pyautogit">File containing all definitions and functions for git commands used by pyautogit</h1>
+                <h1 id="commands">commands</h1>
+<p>File containing all definitions and functions for git commands used by pyautogit.</p>
 <p>This file should remain separate from the CUI interface.</p>
 <p>Author: Jakub Wlodek
 Created: 01-Oct-2019</p>
+<h3 id="remove_repo_tree">remove_repo_tree</h3>
+<pre><code class="python">def remove_repo_tree(target)
+</code></pre>
+
+<p>Function that removes repository.</p>
+<p>Required since removing git repos on windows require a chmod operation.</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>str</td>
+<td>Dir path to removed repo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="del_rw">del_rw</h3>
+<pre><code class="python">def del_rw(action, name, exc)
+</code></pre>
+
+<h3 id="handle_credential_command">handle_credential_command</h3>
+<pre><code class="python">def handle_credential_command(command, credentials, target_location='.')
+</code></pre>
+
+<p>Function that executes a git command that requires credentials.</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>str</td>
+<td>String command to run</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td>list of str</td>
+<td>The user's entered git remote credentials</td>
+</tr>
+<tr>
+<td>target_location</td>
+<td>str</td>
+<td>Location of repository</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parse_string_into_executable_command">parse_string_into_executable_command</h3>
+<pre><code class="python">def parse_string_into_executable_command(command, remove_quotes)
+</code></pre>
+
+<p>Function that takes in a string command, and parses it into a subprocess arg list</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>str</td>
+<td>The command as a string</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>run_command</td>
+<td>list of str</td>
+<td>The command as a list of subprocess args</td>
+</tr>
+</tbody>
+</table>
+<h3 id="handle_basic_command">handle_basic_command</h3>
+<pre><code class="python">def handle_basic_command(command, name, remove_quotes=True)
+</code></pre>
+
+<p>Function that executes any git command given, and returns program output.</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>str</td>
+<td>The command string to run</td>
+</tr>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>The name of the command being run</td>
+</tr>
+<tr>
+<td>remove_quotes</td>
+<td>bool</td>
+<td>Since subprocess takes an array of strings, we split on spaces, however in some cases we want quotes to remain together (ex. commit message)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_2">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="handle_open_external_program_command">handle_open_external_program_command</h3>
+<pre><code class="python">def handle_open_external_program_command(command, name)
+</code></pre>
+
+<p>Function used to run commands that open an external program and detatch from pyautogit.</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>str</td>
+<td>Command string to run</td>
+</tr>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>Name of command to run</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_3">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="handle_custom_command">handle_custom_command</h3>
+<pre><code class="python">def handle_custom_command(command)
+</code></pre>
+
+<p>Function that executes a custom, non-git command</p>
+<h2 id="patameters">Patameters</h2>
+<p>command : str
+Command string to run</p>
+<h4 id="returns_4">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="open_default_editor">open_default_editor</h3>
+<pre><code class="python">def open_default_editor(default_editor, path)
+</code></pre>
+
+<p>Function used to open the selected default editor in external window.</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default_editor</td>
+<td>str</td>
+<td>Editor open command. ex: emacs, code</td>
+</tr>
+<tr>
+<td>path</td>
+<td>str</td>
+<td>The path to the file or directory to open</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_5">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_status_short">git_status_short</h3>
+<pre><code class="python">def git_status_short(repo_path='.')
+</code></pre>
+
+<p>Function for getting shorthand git status</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repo_path</td>
+<td>str</td>
+<td>Target repo path</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_6">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_status">git_status</h3>
+<pre><code class="python">def git_status(repo_path='.')
+</code></pre>
+
+<p>Function for getting git status</p>
+<h4 id="parameters_7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repo_path</td>
+<td>str</td>
+<td>Target repo path</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_7">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_tree">git_tree</h3>
+<pre><code class="python">def git_tree(branch)
+</code></pre>
+
+<p>Function that gets git log as a tree</p>
+<h4 id="parameters_8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch</td>
+<td>str</td>
+<td>branch or tag name to log</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_8">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_log">git_log</h3>
+<pre><code class="python">def git_log(branch)
+</code></pre>
+
+<p>Function that gets git log information</p>
+<h4 id="parameters_9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch</td>
+<td>str</td>
+<td>branch or tag name to log</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_9">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_diff">git_diff</h3>
+<pre><code class="python">def git_diff()
+</code></pre>
+
+<p>Function that gets git diff</p>
+<h4 id="returns_10">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_diff_file">git_diff_file</h3>
+<pre><code class="python">def git_diff_file(filename)
+</code></pre>
+
+<p>Function that gets git diff for specific file</p>
+<h4 id="parameters_10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td>str</td>
+<td>Name of file to diff</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_11">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_get_remotes">git_get_remotes</h3>
+<pre><code class="python">def git_get_remotes()
+</code></pre>
+
+<p>Function for returning git remotes list</p>
+<h4 id="returns_12">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_get_remote_info">git_get_remote_info</h3>
+<pre><code class="python">def git_get_remote_info(remote)
+</code></pre>
+
+<p>Function that gets information about a remote</p>
+<h4 id="parameters_11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>str</td>
+<td>Name of target remote</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_13">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_add_remote">git_add_remote</h3>
+<pre><code class="python">def git_add_remote(remote_name, remote_url)
+</code></pre>
+
+<p>Function that adds a new remote to the repository</p>
+<h4 id="parameters_12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote_name</td>
+<td>str</td>
+<td>Name of the new remote</td>
+</tr>
+<tr>
+<td>remote_url</td>
+<td>str</td>
+<td>URL of the new remote</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_14">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_remove_remote">git_remove_remote</h3>
+<pre><code class="python">def git_remove_remote(remote_name)
+</code></pre>
+
+<p>Function that removes a remote from the repository</p>
+<h4 id="parameters_13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote_name</td>
+<td>str</td>
+<td>Name of the remote</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_15">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_rename_remote">git_rename_remote</h3>
+<pre><code class="python">def git_rename_remote(remote, new_name)
+</code></pre>
+
+<p>Function that renames a remote in the repository</p>
+<h4 id="parameters_14">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>str</td>
+<td>Old name of the remote</td>
+</tr>
+<tr>
+<td>new_name</td>
+<td>str</td>
+<td>New name of the new remote</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_16">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_get_commit_info">git_get_commit_info</h3>
+<pre><code class="python">def git_get_commit_info(commit_hash)
+</code></pre>
+
+<p>Function that gets info about a particular commit.</p>
+<h4 id="parameters_15">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>commit_hash</td>
+<td>str</td>
+<td>Hash code for target commit</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_17">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_checkout_commit">git_checkout_commit</h3>
+<pre><code class="python">def git_checkout_commit(commit_hash)
+</code></pre>
+
+<p>Function that checks out a particular commit.</p>
+<h4 id="parameters_16">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>commit_hash</td>
+<td>str</td>
+<td>Hash code for target commit</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_18">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_commit_changes">git_commit_changes</h3>
+<pre><code class="python">def git_commit_changes(commit_message)
+</code></pre>
+
+<p>Function that commits added changes</p>
+<h4 id="parameters_17">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>commit_message</td>
+<td>str</td>
+<td>Message attached to target commit</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_19">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_create_tag">git_create_tag</h3>
+<pre><code class="python">def git_create_tag(tag_name)
+</code></pre>
+
+<p>Function that creates a new tag</p>
+<h4 id="parameters_18">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tag_name</td>
+<td>str</td>
+<td>The name of the new tag</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_20">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_get_tags">git_get_tags</h3>
+<pre><code class="python">def git_get_tags()
+</code></pre>
+
+<p>Function that gets list of git tags in repo</p>
+<h4 id="returns_21">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_get_branches">git_get_branches</h3>
+<pre><code class="python">def git_get_branches()
+</code></pre>
+
+<p>Function that gets a list of the repo branches.</p>
+<h4 id="returns_22">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_get_recent_commits">git_get_recent_commits</h3>
+<pre><code class="python">def git_get_recent_commits(branch)
+</code></pre>
+
+<p>Gets recent commits made to the branch</p>
+<h4 id="parameters_19">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch</td>
+<td>str</td>
+<td>Name of current branch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_23">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_create_new_branch">git_create_new_branch</h3>
+<pre><code class="python">def git_create_new_branch(branch, checkout=True)
+</code></pre>
+
+<p>Creates anew branch for the repo</p>
+<h4 id="parameters_20">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch</td>
+<td>str</td>
+<td>Name of new branch</td>
+</tr>
+<tr>
+<td>checkout</td>
+<td>bool</td>
+<td>If true, checkout branch after creation.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_24">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_delete_branch">git_delete_branch</h3>
+<pre><code class="python">def git_delete_branch(branch)
+</code></pre>
+
+<p>Deletes existing git branch</p>
+<h4 id="parameters_21">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch</td>
+<td>str</td>
+<td>Name of branch to delete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_25">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_checkout_branch">git_checkout_branch</h3>
+<pre><code class="python">def git_checkout_branch(branch)
+</code></pre>
+
+<p>Checks out given branch</p>
+<h4 id="parameters_22">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch</td>
+<td>str</td>
+<td>Name of target branch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_26">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_checkout_tag">git_checkout_tag</h3>
+<pre><code class="python">def git_checkout_tag(tag)
+</code></pre>
+
+<p>Checks out given tag</p>
+<h4 id="parameters_23">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tag</td>
+<td>str</td>
+<td>Name of tag to check out</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_27">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_merge_branches">git_merge_branches</h3>
+<pre><code class="python">def git_merge_branches(merge_branch)
+</code></pre>
+
+<p>Merges checked out branch with given branch</p>
+<h4 id="parameters_24">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>merge_branch</td>
+<td>str</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_28">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_revert_branch_merge">git_revert_branch_merge</h3>
+<pre><code class="python">def git_revert_branch_merge()
+</code></pre>
+
+<p>Undos merge between two branches</p>
+<h4 id="returns_29">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_init_new_repo">git_init_new_repo</h3>
+<pre><code class="python">def git_init_new_repo(new_dir_target)
+</code></pre>
+
+<p>Function that creates a new git repository</p>
+<h4 id="parameters_25">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_dir_target</td>
+<td>str</td>
+<td>Name of new repo</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_30">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_clone_new_repo">git_clone_new_repo</h3>
+<pre><code class="python">def git_clone_new_repo(new_repo_url, credentials)
+</code></pre>
+
+<p>Function that clones a new git repository</p>
+<h4 id="parameters_26">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_repo_url</td>
+<td>str</td>
+<td>URL of new repo</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td>list of str</td>
+<td>Username and Password for git remote</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_31">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_add_all">git_add_all</h3>
+<pre><code class="python">def git_add_all()
+</code></pre>
+
+<p>Function that stages all files in repo for commit.</p>
+<h4 id="returns_32">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_reset_all">git_reset_all</h3>
+<pre><code class="python">def git_reset_all()
+</code></pre>
+
+<p>Function that unstages all files in repo for commit.</p>
+<h4 id="returns_33">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_add_file">git_add_file</h3>
+<pre><code class="python">def git_add_file(filename)
+</code></pre>
+
+<p>Function that stages single file in repo for commit.</p>
+<h4 id="parameters_27">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td>str</td>
+<td>Name of file to stage</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_34">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_reset_file">git_reset_file</h3>
+<pre><code class="python">def git_reset_file(filename)
+</code></pre>
+
+<p>Function that unstages single file in repo for commit.</p>
+<h4 id="parameters_28">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td>str</td>
+<td>Name of file to unstage</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_35">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_stash_all">git_stash_all</h3>
+<pre><code class="python">def git_stash_all()
+</code></pre>
+
+<p>Function that stashes all changes in repo.</p>
+<h4 id="returns_36">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_unstash_all">git_unstash_all</h3>
+<pre><code class="python">def git_unstash_all()
+</code></pre>
+
+<p>Function that unstashes all changes in repo.</p>
+<h4 id="returns_37">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_stash_file">git_stash_file</h3>
+<pre><code class="python">def git_stash_file(filename)
+</code></pre>
+
+<p>Function that stashes single file in repo.</p>
+<h4 id="parameters_29">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td>str</td>
+<td>Name of file to stash</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_38">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_pull_branch">git_pull_branch</h3>
+<pre><code class="python">def git_pull_branch(branch, remote, credentials)
+</code></pre>
+
+<p>Function that pulls a branch from the remote repo</p>
+<h4 id="parameters_30">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch</td>
+<td>str</td>
+<td>Name of current branch</td>
+</tr>
+<tr>
+<td>remote</td>
+<td>str</td>
+<td>Name of remote</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td>list of str</td>
+<td>Username and Password of user for remoe</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_39">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git_push_to_branch">git_push_to_branch</h3>
+<pre><code class="python">def git_push_to_branch(branch, remote, credentials, repo_path='.')
+</code></pre>
+
+<p>Function that pushes a branch to the remote repo</p>
+<h4 id="parameters_31">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch</td>
+<td>str</td>
+<td>Name of current branch</td>
+</tr>
+<tr>
+<td>remote</td>
+<td>str</td>
+<td>Name of remote</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td>list of str</td>
+<td>Username and Password of user for remote</td>
+</tr>
+<tr>
+<td>repo_path</td>
+<td>str</td>
+<td>The repository path</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_40">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>str</td>
+<td>Output string from stdout if success, stderr if failure</td>
+</tr>
+<tr>
+<td>err</td>
+<td>int</td>
+<td>Error code if failure, 0 otherwise.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
@@ -165,10 +1936,10 @@ Created: 01-Oct-2019</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../SettingsScreen/" class="btn btn-neutral float-right" title="Settings Screen">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../RepoControl/" class="btn btn-neutral" title="Repo Control"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../RepoControlScreen/" class="btn btn-neutral" title="Repo Control"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -198,10 +1969,10 @@ Created: 01-Oct-2019</p>
           <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../RepoControl/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../RepoControlScreen/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../SettingsScreen/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
