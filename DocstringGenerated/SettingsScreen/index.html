@@ -110,6 +110,8 @@
     
         <ul>
         
+            <li><a class="toctree-l4" href="#classes">Classes</a></li>
+        
             <li><a class="toctree-l4" href="#settingsscreenpyautogitscreen_managerscreenmanager">SettingsScreen(pyautogit.screen_manager.ScreenManager)</a></li>
         
         </ul>
@@ -178,11 +180,48 @@
               
                 <h1 id="settings_screen">settings_screen</h1>
 <p>A subscreen that allows for setting a variety of pyautogit settings.</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SettingsScreen</td>
+<td>extends ScreenManager base, adds widgets for controlling pyautogit settings.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="settingsscreenpyautogitscreen_managerscreenmanager">SettingsScreen(pyautogit.screen_manager.ScreenManager)</h2>
 <pre><code class="python">class SettingsScreen(pyautogit.screen_manager.ScreenManager)
 </code></pre>
 
 <p>Class representing settings subscreen for pyautogit</p>
+<h4 id="attributes">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>current_info_log</td>
+<td>str</td>
+<td>The current settings log text</td>
+</tr>
+<tr>
+<td>show_settings_log</td>
+<td>bool</td>
+<td>Toggle for showing settings log</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods">Methods</h4>
 <table>
 <thead>
@@ -276,7 +315,7 @@
 <pre><code class="python">def fetch_about_file(self, file)
 </code></pre>
 
-<p>Function that grabs readme file and displays it</p>
+<p>Function that grabs file from github and displays it in info panel</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
 <thead>

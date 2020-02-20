@@ -94,6 +94,8 @@
     
         <ul>
         
+            <li><a class="toctree-l4" href="#classes">Classes</a></li>
+        
             <li><a class="toctree-l4" href="#screenmanager">ScreenManager</a></li>
         
         </ul>
@@ -178,6 +180,24 @@
               
                 <h1 id="screen_manager">screen_manager</h1>
 <p>File containing class that acts as a parent class to all sub-screen managers</p>
+<p>The base screen manager is responsible for defining how CUI elements are assigned to screens,
+as well as what the screen must do to refresh its status. Also supports performing long (async)
+operations, and running custom commands</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ScreenManager</td>
+<td>Main parent screen manager class for all subscreens</td>
+</tr>
+</tbody>
+</table>
 <h2 id="screenmanager">ScreenManager</h2>
 <pre><code class="python">class ScreenManager
 </code></pre>

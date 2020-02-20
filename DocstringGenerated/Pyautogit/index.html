@@ -90,6 +90,10 @@
     
         <ul>
         
+            <li><a class="toctree-l4" href="#classes">Classes</a></li>
+        
+            <li><a class="toctree-l4" href="#functions">Functions</a></li>
+        
             <li><a class="toctree-l4" href="#find_repos_in_path">find_repos_in_path</a></li>
         
             <li><a class="toctree-l4" href="#is_git_repo">is_git_repo</a></li>
@@ -186,8 +190,52 @@
               
                 <h1 id="pyautogit">pyautogit</h1>
 <p>Main pyautogit manager class and entry point</p>
+<p>The main driver class contains code for common actions performed by all subscreens such as
+credential management, as well as functions for switching between subscreens.</p>
 <p>Author: Jakub Wlodek<br />
 Created: 01-Oct-2019</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyAutogitManager</td>
+<td>Main py_cui wrapper class that drives pyautogit. Uses ScreenManager subclass instances for subscreens</td>
+</tr>
+</tbody>
+</table>
+<h4 id="functions">Functions</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find_repos_in_path</td>
+<td>Searches for .git directories in specified path</td>
+</tr>
+<tr>
+<td>is_git_repo</td>
+<td>Checks if given path is a git repository</td>
+</tr>
+<tr>
+<td>parse_args</td>
+<td>Parses user arguments</td>
+</tr>
+<tr>
+<td>main</td>
+<td>Program entrypoint</td>
+</tr>
+</tbody>
+</table>
 <h3 id="find_repos_in_path">find_repos_in_path</h3>
 <pre><code class="python">def find_repos_in_path(path)
 </code></pre>

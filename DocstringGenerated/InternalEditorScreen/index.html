@@ -114,6 +114,8 @@
     
         <ul>
         
+            <li><a class="toctree-l4" href="#classes">Classes</a></li>
+        
             <li><a class="toctree-l4" href="#editorscreenmanagerpyautogitscreen_managerscreenmanager">EditorScreenManager(pyautogit.screen_manager.ScreenManager)</a></li>
         
         </ul>
@@ -178,6 +180,21 @@
               
                 <h1 id="internal_editor_screen">internal_editor_screen</h1>
 <p>Pyautogit internal editor, based on snano example from py_cui</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EditorScreenManager</td>
+<td>Extension of screenManager, manages editor subscreen</td>
+</tr>
+</tbody>
+</table>
 <h2 id="editorscreenmanagerpyautogitscreen_managerscreenmanager">EditorScreenManager(pyautogit.screen_manager.ScreenManager)</h2>
 <pre><code class="python">class EditorScreenManager(pyautogit.screen_manager.ScreenManager)
 </code></pre>
@@ -242,7 +259,7 @@
 <td>Function that saves the opened file</td>
 </tr>
 <tr>
-<td>delete_selected_file</td>
+<td>delete_selected_file_dir</td>
 <td>Function that deletes the selected file</td>
 </tr>
 </tbody>
@@ -274,6 +291,11 @@
 </tr>
 </tbody>
 </table>
+<h3 id="refresh_status">refresh_status</h3>
+<pre><code class="python">def refresh_status(self)
+</code></pre>
+
+<p>Function that refreshes the view of the file menu on new dir or file creation</p>
 <h3 id="set_initial_values">set_initial_values</h3>
 <pre><code class="python">def set_initial_values(self)
 </code></pre>
@@ -316,6 +338,11 @@
 </code></pre>
 
 <p>Function for creating a new file</p>
+<h3 id="add_new_directory">add_new_directory</h3>
+<pre><code class="python">def add_new_directory(self)
+</code></pre>
+
+<p>Function for creating a new directory</p>
 <h3 id="open_file_dir">open_file_dir</h3>
 <pre><code class="python">def open_file_dir(self)
 </code></pre>
@@ -326,8 +353,8 @@
 </code></pre>
 
 <p>Function that saves the opened file</p>
-<h3 id="delete_selected_file">delete_selected_file</h3>
-<pre><code class="python">def delete_selected_file(self)
+<h3 id="delete_selected_file_dir">delete_selected_file_dir</h3>
+<pre><code class="python">def delete_selected_file_dir(self)
 </code></pre>
 
 <p>Function that deletes the selected file</p>
