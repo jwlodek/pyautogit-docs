@@ -55,6 +55,14 @@
             
     <li class="toctree-l2"><a href="#pyautogit">pyautogit</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#introduction">Introduction</a></li>
+        
+            <li><a class="toctree-l3" href="#demo">Demo</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
@@ -168,6 +176,22 @@
               
                 <h1 id="pyautogit">pyautogit</h1>
 <p>A command line interface for working with git written in python with the help of <a href="https://github.com/jwlodek/py_cui">py_cui</a>.</p>
+<h3 id="introduction">Introduction</h3>
+<p>The aim of <code>pyautogit</code> is to introduce a simple command line interface for managing multiple git repositories from one workspace.
+Install <code>pyautogit</code> with <code>pip</code>:</p>
+<pre><code>pip install pyautogit
+</code></pre>
+
+<p>and start it from a command line either inside a git repository, or in any non-git repo. If you open a git repo, you will
+see a repository control screen, while otherwise a workspace will be created, and any git repositories found as subdirectories
+will be listed for control.</p>
+<p>From here, you can select a repository, or clone and create new ones. I hope <code>pyautogit</code> proves as useful for you as it has for
+me!</p>
+<h3 id="demo">Demo</h3>
+<p>Below is a quick demo of using `pyautogit to do some common git actions.</p>
+<p align="center">
+    <img src="assets/pyautogit-demo.gif">
+</p>
               
             </div>
           </div>
@@ -220,5 +244,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2020-02-20 17:01:43
+Build Date UTC : 2020-02-21 18:17:03
 -->
