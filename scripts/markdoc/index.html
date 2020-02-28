@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="description" content="None">
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Logger - pyautogit Documentation</title>
+  <title>MarkDoc - pyautogit Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Logger";
-    var mkdocs_page_input_path = "DocstringGenerated\\Logger.md";
+    var mkdocs_page_name = "MarkDoc";
+    var mkdocs_page_input_path = "scripts\\markdoc\\README.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -83,61 +83,39 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../Pyautogit/">PyAutogitManager</a>
+    <a class="" href="../../DocstringGenerated/Pyautogit/">PyAutogitManager</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ScreenManager/">Screen Manager</a>
+    <a class="" href="../../DocstringGenerated/ScreenManager/">Screen Manager</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../RepoSelectScreen/">Repo Select</a>
+    <a class="" href="../../DocstringGenerated/RepoSelectScreen/">Repo Select</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../RepoControlScreen/">Repo Control</a>
+    <a class="" href="../../DocstringGenerated/RepoControlScreen/">Repo Control</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Commands/">Commands</a>
+    <a class="" href="../../DocstringGenerated/Commands/">Commands</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../SettingsScreen/">Settings Screen</a>
+    <a class="" href="../../DocstringGenerated/SettingsScreen/">Settings Screen</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../InternalEditorScreen/">Editor Screen</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Logger</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#logger">logger</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#functions">Functions</a></li>
-        
-            <li><a class="toctree-l4" href="#toggle_logging">toggle_logging</a></li>
-        
-            <li><a class="toctree-l4" href="#set_log_file_path">set_log_file_path</a></li>
-        
-            <li><a class="toctree-l4" href="#initialize_logger">initialize_logger</a></li>
-        
-            <li><a class="toctree-l4" href="#close_logger">close_logger</a></li>
-        
-            <li><a class="toctree-l4" href="#write">write</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../DocstringGenerated/InternalEditorScreen/">Editor Screen</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../MetadataManager/">Metadata Manager</a>
+    <a class="" href="../../DocstringGenerated/Logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../DocstringGenerated/MetadataManager/">Metadata Manager</a>
                 </li>
     </ul>
 	    </li>
@@ -168,15 +146,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>For Developers &raquo;</li>
-        
-      
     
-    <li>Logger</li>
+    <li>MarkDoc</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/DocstringGenerated/Logger.md"
+        <a href="https://github.com/jwlodek/pyautogit/edit/master/docs/scripts/markdoc/README.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -186,134 +160,89 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="logger">logger</h1>
-<p>Module containing logging classes and functions.</p>
-<p>The logger is controlled via a set of global variables set by the pyautogit client.</p>
-<h4 id="functions">Functions</h4>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>toggle_logging</td>
-<td>Function for opening/closing log file as required.</td>
-</tr>
-<tr>
-<td>set_log_file_path</td>
-<td>Sets the path to the log file</td>
-</tr>
-<tr>
-<td>initialize_logger</td>
-<td>Function for initializing log-file writing in addition to stdout output</td>
-</tr>
-<tr>
-<td>close_logger</td>
-<td>Function that closes the opened logfile</td>
-</tr>
-<tr>
-<td>write</td>
-<td>Main logging funcion. Called if write function was set</td>
-</tr>
-</tbody>
-</table>
-<h3 id="toggle_logging">toggle_logging</h3>
-<pre><code class="python">def toggle_logging()
+                <h1 id="markdoc">MarkDoc</h1>
+<p>This piece of code can be used to convert
+<a href="https://sphinxcontrib-napoleon.readthedocs.org/en/latest/example_numpy.html">NumPy-styled</a> Python docstrings (<a href="https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/neural_network/multilayer_perceptron.py#L134">example</a>),
+such as those used in <a href="https://www.scikit-learn.org/">scikit-learn</a>, to
+Markdown with minimum dependencies. In this way, only the code-contained
+documentation needs to be editted, and your documentation on for example
+<a href="http://www.readthedocs.org/">readthedocs</a> can be automatically updated
+thereafter with some configuration.</p>
+<h2 id="example">Example</h2>
+<p>The converted documentation for this particular code can be found
+<a href="https://github.com/cmry/markdoc/blob/master/markdoc.md">here</a>.</p>
+<h2 id="before-use">Before Use</h2>
+<p>The format assumes that your code (or at least your docstring documentation) is
+in line with the styleguides of <em>both</em> PEP8 and PEP257. There are two ways to
+go about making sure this is the case:</p>
+<h4 id="fast">Fast</h4>
+<p>Just check the example
+<a href="https://github.com/cmry/markdoc/blob/master/markdoc.py#L304">here</a> to get a
+quick overview of how the docstrings would have to look in order for them
+to parse correctly.</p>
+<h4 id="better">Better</h4>
+<p>The styleguides are incorporated into two libraries that can be used to check
+the Python files for style errors in terminal, like so:</p>
+<pre><code class="shell">pip install pep8
+pip install pep257
+
+pep8 yourpythonfile.py
+pep257 yourpythonfile.py
 </code></pre>
 
-<p>Function for opening/closing log file as required.</p>
-<h3 id="set_log_file_path">set_log_file_path</h3>
-<pre><code class="python">def set_log_file_path(log_file_path)
+<p>These are more conveniently implemented in linter plugins such as <code>linter-pep8</code>
+and <code>linter-pep257</code> for the <a href="https://atom.io/users/AtomLinter/packages">linter</a>
+package in <a href="http://www.atom.io/">Atom</a>, and
+<a href="https://github.com/dreadatour/Flake8Lint">Flake8Lint</a> for
+<a href="https://www.sublimetext.com/">Sublime Text</a> (and pretty much every other IDE).</p>
+<h2 id="usage">Usage</h2>
+<p>First clone from GitHub:</p>
+<pre><code class="shell">git clone https://www.github.com/cmry/markdoc
 </code></pre>
 
-<p>Sets the path to the log file</p>
-<h4 id="parameters">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>log_file_path</td>
-<td>str</td>
-<td>Path to the log file</td>
-</tr>
-</tbody>
-</table>
-<h3 id="initialize_logger">initialize_logger</h3>
-<pre><code class="python">def initialize_logger()
+<p>To use the script within terminal, simply type:</p>
+<pre><code class="shell">python3 markdoc.py /dir/to/somefile.py /dir/to/somedoc.md
 </code></pre>
 
-<p>Function for initializing log-file writing in addition to stdout output</p>
-<h4 id="returns">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>initialized</td>
-<td>bool</td>
-<td>True if log file opened, false otherwise</td>
-</tr>
-</tbody>
-</table>
-<h3 id="close_logger">close_logger</h3>
-<pre><code class="python">def close_logger()
+<p>If you want to automatically generate a bunch of documentation and are not
+comfortable with writing <code>.sh</code> scripts, you can use the code in Python as well:</p>
+<pre><code class="python">from markdoc import MarkDoc
+md = MarkDoc('/dir/to/somefile.py', '/dir/to/somedoc.md')
 </code></pre>
 
-<p>Function that closes the opened logfile</p>
-<h3 id="write">write</h3>
-<pre><code class="python">def write(text, no_timestamp=False)
+<p>You can access the converted markdown string in:</p>
+<pre><code class="python"># print markdown from class attribute
+print(md.markdown)
 </code></pre>
 
-<p>Main logging funcion. Called if write function was set</p>
-<h4 id="parameters_1">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>debug text to print</td>
-</tr>
-<tr>
-<td>no_timestamp=False</td>
-<td>bool</td>
-<td>a flag to disable timestamp printing when required</td>
-</tr>
-</tbody>
-</table>
+<p>The class runs itself on initialization (calls <code>self.read</code>). If you do not
+want this, you can add <code>cold=True</code> to the class initialization, like so:</p>
+<pre><code class="python">md = MarkDoc('file.py', 'doc.md', cold=True)
+</code></pre>
+
+<h2 id="planned-fixes">Planned Fixes</h2>
+<ul>
+<li>Handle consecutive classes within the same file.</li>
+<li>Fix inherrited classes being handled correctly (no <code>__init__</code>, no <code>object</code>).</li>
+<li>Link class methods from table to their documentation.</li>
+<li>Might not handle decorators neatly.</li>
+</ul>
+<h2 id="docstring-issues">Docstring Issues</h2>
+<p>Some caveats:</p>
+<ul>
+<li>Do not use <code>"""</code> for anything other than docstrings.</li>
+<li>First line of any docstring has to contain the first short title
+  (<a href="https://github.com/cmry/markdoc/blob/master/markdoc.py#L162">example</a>).</li>
+<li>Classes have to be structured new-style: <code>class SomeClass(object):</code>.</li>
+<li>Codeblocks in examples have to be vanilla Python (<code>&gt;&gt;&gt;</code> and <code>...</code>).</li>
+<li>Please do not use <code>class</code> as a parameter name!</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<p>Script has only been tested with Python 3.4 on Ubuntu.</p>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../MetadataManager/" class="btn btn-neutral float-right" title="Metadata Manager">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../InternalEditorScreen/" class="btn btn-neutral" title="Editor Screen"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -341,10 +270,6 @@
           <a href="https://github.com/jwlodek/pyautogit/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../InternalEditorScreen/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../MetadataManager/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
@@ -354,3 +279,8 @@
 
 </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2020-02-28 16:06:14
+-->

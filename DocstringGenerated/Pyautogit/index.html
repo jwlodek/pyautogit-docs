@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "PyAutogitManager";
-    var mkdocs_page_input_path = "DocstringGenerated/Pyautogit.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\Pyautogit.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -205,7 +205,7 @@ Created: 01-Oct-2019</p>
 <tbody>
 <tr>
 <td>PyAutogitManager</td>
-<td>Main py_cui wrapper class that drives pyautogit. Uses ScreenManager subclass instances for subscreens</td>
+<td>Main pyautogit manager class. Controls all operations of CUI</td>
 </tr>
 </tbody>
 </table>
@@ -220,19 +220,19 @@ Created: 01-Oct-2019</p>
 <tbody>
 <tr>
 <td>find_repos_in_path</td>
-<td>Searches for .git directories in specified path</td>
+<td>Helper function that finds repositories in the path</td>
 </tr>
 <tr>
 <td>is_git_repo</td>
-<td>Checks if given path is a git repository</td>
+<td>Simple function that checks if a given path is a git repository</td>
 </tr>
 <tr>
 <td>parse_args</td>
-<td>Parses user arguments</td>
+<td>Function that parses user arguments for pyautogit</td>
 </tr>
 <tr>
 <td>main</td>
-<td>Program entrypoint</td>
+<td>Entry point for pyautogit. Parses arguments, and initializes the CUI</td>
 </tr>
 </tbody>
 </table>
@@ -503,6 +503,18 @@ Created: 01-Oct-2019</p>
 </thead>
 <tbody>
 <tr>
+<td>close_cleanup</td>
+<td>Function fired upon closing pyautogit</td>
+</tr>
+<tr>
+<td>clean_exit</td>
+<td>Function that exits the CUI cleanly</td>
+</tr>
+<tr>
+<td>error_exit</td>
+<td>Function that exits the CUI with an error code</td>
+</tr>
+<tr>
 <td>open_not_supported_popup</td>
 <td>Function that displays warning for a non-supported operation</td>
 </tr>
@@ -511,8 +523,20 @@ Created: 01-Oct-2019</p>
 <td>Function that opens the repository control window.</td>
 </tr>
 <tr>
+<td>open_autogit_window_target</td>
+<td>Function that opens a repo control window given a target location</td>
+</tr>
+<tr>
 <td>open_repo_select_window</td>
-<td>Function that opens the repository select window.</td>
+<td>Opens the repo select window. Fired when the backspace key is pressed in the repo control window</td>
+</tr>
+<tr>
+<td>open_settings_window</td>
+<td>Function for opening the settings window</td>
+</tr>
+<tr>
+<td>open_editor_window</td>
+<td>Function that opens an editor window</td>
 </tr>
 <tr>
 <td>update_password</td>
@@ -520,7 +544,7 @@ Created: 01-Oct-2019</p>
 </tr>
 <tr>
 <td>ask_password</td>
-<td>Function that opens popup and asks for password. Also writes username to credentials</td>
+<td>Function that opens popup and asks for password. Also writes username to credentials.</td>
 </tr>
 <tr>
 <td>ask_credentials</td>

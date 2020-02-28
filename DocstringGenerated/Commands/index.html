@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Commands";
-    var mkdocs_page_input_path = "DocstringGenerated/Commands.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\Commands.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -105,6 +105,8 @@
     <li class="toctree-l3"><a href="#commands">commands</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l4" href="#functions">Functions</a></li>
         
             <li><a class="toctree-l4" href="#remove_repo_tree">remove_repo_tree</a></li>
         
@@ -195,6 +197,189 @@
 <p>This file should remain separate from the CUI interface.</p>
 <p>Author: Jakub Wlodek<br />
 Created: 01-Oct-2019</p>
+<h4 id="functions">Functions</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remove_repo_tree</td>
+<td>Function that removes repository.</td>
+</tr>
+<tr>
+<td>del_rw</td>
+<td></td>
+</tr>
+<tr>
+<td>handle_credential_command</td>
+<td>Function that executes a git command that requires credentials.</td>
+</tr>
+<tr>
+<td>parse_string_into_executable_command</td>
+<td>Function that takes in a string command, and parses it into a subprocess arg list</td>
+</tr>
+<tr>
+<td>handle_basic_command</td>
+<td>Function that executes any git command given, and returns program output.</td>
+</tr>
+<tr>
+<td>handle_open_external_program_command</td>
+<td>Function used to run commands that open an external program and detatch from pyautogit.</td>
+</tr>
+<tr>
+<td>handle_custom_command</td>
+<td>Function that executes a custom, non-git command</td>
+</tr>
+<tr>
+<td>open_default_editor</td>
+<td>Function used to open the selected default editor in external window.</td>
+</tr>
+<tr>
+<td>git_status_short</td>
+<td>Function for getting shorthand git status</td>
+</tr>
+<tr>
+<td>git_status</td>
+<td>Function for getting git status</td>
+</tr>
+<tr>
+<td>git_tree</td>
+<td>Function that gets git log as a tree</td>
+</tr>
+<tr>
+<td>git_log</td>
+<td>Function that gets git log information</td>
+</tr>
+<tr>
+<td>git_diff</td>
+<td>Function that gets git diff</td>
+</tr>
+<tr>
+<td>git_diff_file</td>
+<td>Function that gets git diff for specific file</td>
+</tr>
+<tr>
+<td>git_get_remotes</td>
+<td>Function for returning git remotes list</td>
+</tr>
+<tr>
+<td>git_get_remote_info</td>
+<td>Function that gets information about a remote</td>
+</tr>
+<tr>
+<td>git_add_remote</td>
+<td>Function that adds a new remote to the repository</td>
+</tr>
+<tr>
+<td>git_remove_remote</td>
+<td>Function that removes a remote from the repository</td>
+</tr>
+<tr>
+<td>git_rename_remote</td>
+<td>Function that renames a remote in the repository</td>
+</tr>
+<tr>
+<td>git_get_commit_info</td>
+<td>Function that gets info about a particular commit.</td>
+</tr>
+<tr>
+<td>git_checkout_commit</td>
+<td>Function that checks out a particular commit.</td>
+</tr>
+<tr>
+<td>git_commit_changes</td>
+<td>Function that commits added changes</td>
+</tr>
+<tr>
+<td>git_create_tag</td>
+<td>Function that creates a new tag</td>
+</tr>
+<tr>
+<td>git_get_tags</td>
+<td>Function that gets list of git tags in repo</td>
+</tr>
+<tr>
+<td>git_get_branches</td>
+<td>Function that gets a list of the repo branches.</td>
+</tr>
+<tr>
+<td>git_get_recent_commits</td>
+<td>Gets recent commits made to the branch</td>
+</tr>
+<tr>
+<td>git_create_new_branch</td>
+<td>Creates anew branch for the repo</td>
+</tr>
+<tr>
+<td>git_delete_branch</td>
+<td>Deletes existing git branch</td>
+</tr>
+<tr>
+<td>git_checkout_branch</td>
+<td>Checks out given branch</td>
+</tr>
+<tr>
+<td>git_checkout_tag</td>
+<td>Checks out given tag</td>
+</tr>
+<tr>
+<td>git_merge_branches</td>
+<td>Merges checked out branch with given branch</td>
+</tr>
+<tr>
+<td>git_revert_branch_merge</td>
+<td>Undos merge between two branches</td>
+</tr>
+<tr>
+<td>git_init_new_repo</td>
+<td>Function that creates a new git repository</td>
+</tr>
+<tr>
+<td>git_clone_new_repo</td>
+<td>Function that clones a new git repository</td>
+</tr>
+<tr>
+<td>git_add_all</td>
+<td>Function that stages all files in repo for commit.</td>
+</tr>
+<tr>
+<td>git_reset_all</td>
+<td>Function that unstages all files in repo for commit.</td>
+</tr>
+<tr>
+<td>git_add_file</td>
+<td>Function that stages single file in repo for commit.</td>
+</tr>
+<tr>
+<td>git_reset_file</td>
+<td>Function that unstages single file in repo for commit.</td>
+</tr>
+<tr>
+<td>git_stash_all</td>
+<td>Function that stashes all changes in repo.</td>
+</tr>
+<tr>
+<td>git_unstash_all</td>
+<td>Function that unstashes all changes in repo.</td>
+</tr>
+<tr>
+<td>git_stash_file</td>
+<td>Function that stashes single file in repo.</td>
+</tr>
+<tr>
+<td>git_pull_branch</td>
+<td>Function that pulls a branch from the remote repo</td>
+</tr>
+<tr>
+<td>git_push_to_branch</td>
+<td>Function that pushes a branch to the remote repo</td>
+</tr>
+</tbody>
+</table>
 <h3 id="remove_repo_tree">remove_repo_tree</h3>
 <pre><code class="python">def remove_repo_tree(target)
 </code></pre>

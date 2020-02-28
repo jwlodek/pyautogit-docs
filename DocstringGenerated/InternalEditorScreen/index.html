@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Editor Screen";
-    var mkdocs_page_input_path = "DocstringGenerated/InternalEditorScreen.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\InternalEditorScreen.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -190,8 +190,8 @@
 </thead>
 <tbody>
 <tr>
-<td>EditorScreenManager</td>
-<td>Extension of screenManager, manages editor subscreen</td>
+<td>EditorScreenManager(pyautogit.screen_manager.ScreenManager)</td>
+<td>Class representing internal editor screen for pyautogit</td>
 </tr>
 </tbody>
 </table>
@@ -215,6 +215,11 @@
 <td>str</td>
 <td>The current opened path for the editor</td>
 </tr>
+<tr>
+<td>is_new_file_open</td>
+<td>bool</td>
+<td>Flag that says if a new file is open</td>
+</tr>
 </tbody>
 </table>
 <h4 id="methods">Methods</h4>
@@ -229,6 +234,10 @@
 <tr>
 <td>initialize_screen_elements</td>
 <td>Override of base class. Initializes editor widgets and widget set</td>
+</tr>
+<tr>
+<td>refresh_status</td>
+<td>Function that refreshes the view of the file menu on new dir or file creation</td>
 </tr>
 <tr>
 <td>set_initial_values</td>
@@ -249,6 +258,10 @@
 <tr>
 <td>add_new_file</td>
 <td>Function for creating a new file</td>
+</tr>
+<tr>
+<td>add_new_directory</td>
+<td>Function for creating a new directory</td>
 </tr>
 <tr>
 <td>open_file_dir</td>

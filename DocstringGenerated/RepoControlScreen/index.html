@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Repo Control";
-    var mkdocs_page_input_path = "DocstringGenerated/RepoControlScreen.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\RepoControlScreen.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -194,8 +194,8 @@ Created: 01-Oct-2019</p>
 </thead>
 <tbody>
 <tr>
-<td>RepoControlManager</td>
-<td>Extension of ScreenManager, manages repository control actions</td>
+<td>RepoControlManager(pyautogit.screen_manager.ScreenManager)</td>
+<td>Class responsible for managing functions for the repository control screen.</td>
 </tr>
 </tbody>
 </table>
@@ -238,6 +238,18 @@ the pyautogit.commands module.</p>
 <td>Override of base class, executes based on user menu selection</td>
 </tr>
 <tr>
+<td>initialize_screen_elements</td>
+<td>Function that initializes the widgets for the repo control screen. Override of base class function</td>
+</tr>
+<tr>
+<td>clear_elements</td>
+<td>Function that clears elements of repo control window</td>
+</tr>
+<tr>
+<td>set_initial_values</td>
+<td>Function that initializes status bar and info text for repo control window</td>
+</tr>
+<tr>
 <td>refresh_status</td>
 <td>Function that refreshes a git repository status</td>
 </tr>
@@ -247,23 +259,35 @@ the pyautogit.commands module.</p>
 </tr>
 <tr>
 <td>get_repo_remotes</td>
-<td>gets list of repository remotes</td>
+<td>Gets list of repository remotes</td>
+</tr>
+<tr>
+<td>show_branches</td>
+<td>Function that swaps to showing branches</td>
 </tr>
 <tr>
 <td>get_repo_branches</td>
-<td>gets list of repository branches</td>
+<td>Gets list of repository branches</td>
+</tr>
+<tr>
+<td>show_tags</td>
+<td>Function that swaps to showing tags</td>
+</tr>
+<tr>
+<td>get_repo_tags</td>
+<td>Gets list of repository tags</td>
 </tr>
 <tr>
 <td>show_remote_info</td>
-<td>gets info about remote</td>
+<td>Gets info about remote</td>
 </tr>
 <tr>
 <td>show_commit_info</td>
-<td>gets info about a particular commit</td>
+<td>Gets info about a particular commit</td>
 </tr>
 <tr>
 <td>get_recent_commits</td>
-<td>gets list of recent commits to branch</td>
+<td>Gets list of recent commits to branch</td>
 </tr>
 <tr>
 <td>create_new_tag</td>
@@ -272,6 +296,10 @@ the pyautogit.commands module.</p>
 <tr>
 <td>show_log</td>
 <td>Displays the git log</td>
+</tr>
+<tr>
+<td>show_tree</td>
+<td>Displays git log as a tree</td>
 </tr>
 <tr>
 <td>stash_all_changes</td>
@@ -307,15 +335,15 @@ the pyautogit.commands module.</p>
 </tr>
 <tr>
 <td>ask_new_remote_name</td>
-<td>Asks user for new remote name</td>
+<td>Opens text box to enter new remote name</td>
 </tr>
 <tr>
 <td>ask_new_remote_url</td>
-<td>Asks user for new remote url</td>
+<td>Opens text box to ask new remote url</td>
 </tr>
 <tr>
 <td>add_remote</td>
-<td>Adds a new remote to repo</td>
+<td>Adds remote to git repo</td>
 </tr>
 <tr>
 <td>delete_remote</td>
@@ -331,23 +359,55 @@ the pyautogit.commands module.</p>
 </tr>
 <tr>
 <td>pull_repo_branch</td>
-<td>pulls from remote</td>
+<td>Pulls from remote</td>
 </tr>
 <tr>
 <td>push_repo_branch</td>
-<td>pushes to remote</td>
+<td>Pushes to remote</td>
 </tr>
 <tr>
 <td>create_new_branch</td>
 <td>Creates new branch for repository</td>
 </tr>
 <tr>
+<td>delete_branch</td>
+<td>Deletes selected branch</td>
+</tr>
+<tr>
 <td>checkout_branch</td>
 <td>Checks out specified branch</td>
 </tr>
 <tr>
+<td>merge_branches</td>
+<td>Merges selected branch into the currently checked out branch</td>
+</tr>
+<tr>
+<td>revert_merge</td>
+<td>Undos the merge that was just performed</td>
+</tr>
+<tr>
 <td>checkout_commit</td>
 <td>Checks out specified commit</td>
+</tr>
+<tr>
+<td>show_help_overview</td>
+<td>Function that displays help message for overview mode.</td>
+</tr>
+<tr>
+<td>show_help_add_files_menu</td>
+<td>Function that displays help message for the add files menu.</td>
+</tr>
+<tr>
+<td>show_help_remotes_menu</td>
+<td>Function that displays help message for the add files menu.</td>
+</tr>
+<tr>
+<td>show_help_branch_menu</td>
+<td>Function that displays help message for the add files menu.</td>
+</tr>
+<tr>
+<td>show_help_commits_menu</td>
+<td>Function that displays help message for the add files menu.</td>
 </tr>
 </tbody>
 </table>

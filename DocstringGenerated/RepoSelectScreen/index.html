@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Repo Select";
-    var mkdocs_page_input_path = "DocstringGenerated/RepoSelectScreen.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\RepoSelectScreen.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -190,8 +190,8 @@
 </thead>
 <tbody>
 <tr>
-<td>RepoSelectManager</td>
-<td>Extension of ScreenManager, supports repository selection</td>
+<td>RepoSelectManager(pyautogit.screen_manager.ScreenManager)</td>
+<td>Class representing the manager for the repo select screen</td>
 </tr>
 </tbody>
 </table>
@@ -231,6 +231,18 @@
 <td>Override of base class, executes depending on menu selection</td>
 </tr>
 <tr>
+<td>initialize_screen_elements</td>
+<td>Override of base function. Initializes widgets, returns screen widget set</td>
+</tr>
+<tr>
+<td>clear_elements</td>
+<td>Override of base class function, clears text fields</td>
+</tr>
+<tr>
+<td>set_initial_values</td>
+<td>Override of base function. Sets some initial text for the widgets</td>
+</tr>
+<tr>
 <td>refresh_status</td>
 <td>Function that refreshes the repositories in the selection screen</td>
 </tr>
@@ -244,7 +256,7 @@
 </tr>
 <tr>
 <td>show_repo_status</td>
-<td>Function that displays git status info for current repo</td>
+<td>Function that shows the current repository status</td>
 </tr>
 <tr>
 <td>clone_new_repo</td>

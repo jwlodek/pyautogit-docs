@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Settings Screen";
-    var mkdocs_page_input_path = "DocstringGenerated/SettingsScreen.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\SettingsScreen.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -190,8 +190,8 @@
 </thead>
 <tbody>
 <tr>
-<td>SettingsScreen</td>
-<td>extends ScreenManager base, adds widgets for controlling pyautogit settings.</td>
+<td>SettingsScreen(pyautogit.screen_manager.ScreenManager)</td>
+<td>Class representing settings subscreen for pyautogit</td>
 </tr>
 </tbody>
 </table>
@@ -233,7 +233,31 @@
 <tbody>
 <tr>
 <td>initialize_screen_elements</td>
-<td>Override of base class, initializes elements, returns widget set</td>
+<td>Override of base class function. Initializes widgets, and returns widget set</td>
+</tr>
+<tr>
+<td>set_initial_values</td>
+<td>Function that sets initial status bar text for settings window</td>
+</tr>
+<tr>
+<td>add_to_settings_log</td>
+<td>Function that updates the settings info log panel</td>
+</tr>
+<tr>
+<td>fetch_about_file</td>
+<td>Function that grabs file from github and displays it in info panel</td>
+</tr>
+<tr>
+<td>revert_settings_log</td>
+<td>Function that resets to showing settings info</td>
+</tr>
+<tr>
+<td>open_web_docs</td>
+<td>Function tasked with open docs in external browser</td>
+</tr>
+<tr>
+<td>show_tutorial</td>
+<td>Function that demonstrates tutorial for using pyautogit</td>
 </tr>
 <tr>
 <td>ask_log_file_path</td>
@@ -241,19 +265,31 @@
 </tr>
 <tr>
 <td>get_settings_ascii_art</td>
-<td>Gets an ascii art settings title</td>
+<td>Gets ascii art settings logo</td>
+</tr>
+<tr>
+<td>toggle_editor_type</td>
+<td>Function that toggles between internal and external editor</td>
 </tr>
 <tr>
 <td>toggle_logging</td>
-<td>Function that toggles logging for pyautogit</td>
+<td>Function that enables/disables logging</td>
+</tr>
+<tr>
+<td>ask_default_editor</td>
+<td>Function that asks user for editor, and then refreshes</td>
+</tr>
+<tr>
+<td>update_default_editor</td>
+<td>Function that updates the new default editor</td>
 </tr>
 <tr>
 <td>update_log_file_path</td>
-<td>Function that updates the target log file path</td>
+<td>Function that updates log file path if valid</td>
 </tr>
 <tr>
 <td>refresh_status</td>
-<td>Override of base class refresh function</td>
+<td>Override of base class refresh function.</td>
 </tr>
 </tbody>
 </table>
